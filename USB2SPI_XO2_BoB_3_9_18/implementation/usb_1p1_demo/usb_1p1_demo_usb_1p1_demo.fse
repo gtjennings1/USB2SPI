@@ -1,0 +1,150 @@
+
+fsm_encoding {83955839551} onehot
+
+fsm_state_encoding {83955839551} idle_state {000001}
+
+fsm_state_encoding {83955839551} sop_state {000010}
+
+fsm_state_encoding {83955839551} data_state {000100}
+
+fsm_state_encoding {83955839551} eop1_state {001000}
+
+fsm_state_encoding {83955839551} eop2_state {010000}
+
+fsm_state_encoding {83955839551} wait_state {100000}
+
+fsm_registers {83955839551} {state[0]}  {state[1]}  {state[2]}  {state[3]}  {state[4]}  {state[5]} 
+
+fsm_encoding {84140841402} onehot
+
+fsm_state_encoding {84140841402} fs_idle {00000001}
+
+fsm_state_encoding {84140841402} k1 {00000010}
+
+fsm_state_encoding {84140841402} j1 {00000100}
+
+fsm_state_encoding {84140841402} k2 {00001000}
+
+fsm_state_encoding {84140841402} j2 {00010000}
+
+fsm_state_encoding {84140841402} k3 {00100000}
+
+fsm_state_encoding {84140841402} j3 {01000000}
+
+fsm_state_encoding {84140841402} k4 {10000000}
+
+fsm_registers {84140841402} {fs_state[0]}  {fs_state[1]}  {fs_state[2]}  {fs_state[3]}  {fs_state[4]}  {fs_state[5]}  {fs_state[6]}  {fs_state[7]} 
+
+fsm_encoding {845981145987} onehot
+
+fsm_state_encoding {845981145987} st_idle {00000001}
+
+fsm_state_encoding {845981145987} st_stall {00000010}
+
+fsm_state_encoding {845981145987} st_nak {00000100}
+
+fsm_state_encoding {845981145987} st_instart {00001000}
+
+fsm_state_encoding {845981145987} st_insend {00010000}
+
+fsm_state_encoding {845981145987} st_indone {00100000}
+
+fsm_state_encoding {845981145987} st_outrecv {01000000}
+
+fsm_state_encoding {845981145987} st_outnak {10000000}
+
+fsm_registers {845981145987} {s_state[0]}  {s_state[1]}  {s_state[2]}  {s_state[3]}  {s_state[4]}  {s_state[5]}  {s_state[6]}  {s_state[7]} 
+
+fsm_encoding {849551149553} sequential
+
+fsm_state_encoding {849551149553} st_init {00}
+
+fsm_state_encoding {849551149553} st_fsreset {01}
+
+fsm_state_encoding {849551149553} st_fullspeed {10}
+
+fsm_state_encoding {849551149553} st_suspend {11}
+
+fsm_registers {849551149553} {s_state[1]}  {s_state[0]} 
+
+fsm_encoding {851521151524} onehot
+
+fsm_state_encoding {851521151524} st_none {0000000001}
+
+fsm_state_encoding {851521151524} st_chirpk {0000000010}
+
+fsm_state_encoding {851521151524} st_rwait {0000000100}
+
+fsm_state_encoding {851521151524} st_rtoken {0000001000}
+
+fsm_state_encoding {851521151524} st_rdata {0000010000}
+
+fsm_state_encoding {851521151524} st_rshake {0000100000}
+
+fsm_state_encoding {851521151524} st_tstart {0001000000}
+
+fsm_state_encoding {851521151524} st_tdata {0010000000}
+
+fsm_state_encoding {851521151524} st_tcrc1 {0100000000}
+
+fsm_state_encoding {851521151524} st_tcrc2 {1000000000}
+
+fsm_registers {851521151524} {s_state[0]}  {s_state[1]}  {s_state[2]}  {s_state[3]}  {s_state[4]}  {s_state[5]}  {s_state[6]}  {s_state[7]}  {s_state[8]}  {s_state[9]} 
+
+fsm_encoding {853671153675} onehot
+
+fsm_state_encoding {853671153675} st_idle {00000000000001}
+
+fsm_state_encoding {853671153675} st_skip {00000000000010}
+
+fsm_state_encoding {853671153675} st_gettoken1 {00000000000100}
+
+fsm_state_encoding {853671153675} st_gettoken2 {00000000001000}
+
+fsm_state_encoding {853671153675} st_gettoken3 {00000000010000}
+
+fsm_state_encoding {853671153675} st_gottoken {00000000100000}
+
+fsm_state_encoding {853671153675} st_sendshake {00000001000000}
+
+fsm_state_encoding {853671153675} st_getdata {00000010000000}
+
+fsm_state_encoding {853671153675} st_gotdata {00000100000000}
+
+fsm_state_encoding {853671153675} st_senddata {00001000000000}
+
+fsm_state_encoding {853671153675} st_sending {00010000000000}
+
+fsm_state_encoding {853671153675} st_waitack {00100000000000}
+
+fsm_state_encoding {853671153675} st_waitskip {01000000000000}
+
+fsm_state_encoding {853671153675} st_getack {10000000000000}
+
+fsm_registers {853671153675} {s_state[0]}  {s_state[1]}  {s_state[2]}  {s_state[3]}  {s_state[4]}  {s_state[5]}  {s_state[6]}  {s_state[7]}  {s_state[8]}  {s_state[9]}  {s_state[10]}  {s_state[11]}  {s_state[12]}  {s_state[13]} 
+
+fsm_encoding {856551156556} sequential
+
+fsm_state_encoding {856551156556} st_idle {0000}
+
+fsm_state_encoding {856551156556} st_stall {0001}
+
+fsm_state_encoding {856551156556} st_setup {0010}
+
+fsm_state_encoding {856551156556} st_setuperr {0011}
+
+fsm_state_encoding {856551156556} st_nonstandard {0100}
+
+fsm_state_encoding {856551156556} st_endsetup {0101}
+
+fsm_state_encoding {856551156556} st_waitin {0110}
+
+fsm_state_encoding {856551156556} st_sendresp {0111}
+
+fsm_state_encoding {856551156556} st_startdesc {1000}
+
+fsm_state_encoding {856551156556} st_senddesc {1001}
+
+fsm_state_encoding {856551156556} st_donesend {1010}
+
+fsm_registers {856551156556} {s_state[3]}  {s_state[2]}  {s_state[1]}  {s_state[0]} 

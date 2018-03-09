@@ -1,0 +1,318 @@
+PAR: Place And Route Diamond (64-bit) 3.10.0.111.2.
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights reserved.
+Fri Mar 09 09:50:28 2018
+
+C:/lscc/diamond/3.10_x64/ispfpga\bin\nt64\par -f usb_1p1_demo_usb_1p1_demo.p2t
+usb_1p1_demo_usb_1p1_demo_map.ncd usb_1p1_demo_usb_1p1_demo.dir
+usb_1p1_demo_usb_1p1_demo.prf -gui -msgset
+C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/promote.xml
+
+
+Preference file: usb_1p1_demo_usb_1p1_demo.prf.
+
+Level/       Number       Worst        Timing       Worst        Timing       Run          NCD
+Cost [ncd]   Unrouted     Slack        Score        Slack(hold)  Score(hold)  Time         Status
+----------   --------     -----        ------       -----------  -----------  ----         ------
+5_1   *      0            -0.557       1298         0.139        0            40           Success
+
+* : Design saved.
+
+Total (real) run time for 1-seed: 40 secs 
+
+par done!
+
+Lattice Place and Route Report for Design "usb_1p1_demo_usb_1p1_demo_map.ncd"
+Fri Mar 09 09:50:28 2018
+
+PAR: Place And Route Diamond (64-bit) 3.10.0.111.2.
+Command Line: par -w -l 5 -i 6 -t 1 -c 0 -e 0 -gui -msgset C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/promote.xml -exp parUseNBR=1:parCDP=0:parCDR=0:parPathBased=OFF usb_1p1_demo_usb_1p1_demo_map.ncd usb_1p1_demo_usb_1p1_demo.dir/5_1.ncd usb_1p1_demo_usb_1p1_demo.prf
+Preference file: usb_1p1_demo_usb_1p1_demo.prf.
+Placement level-cost: 5-1.
+Routing Iterations: 6
+
+Loading design for application par from file usb_1p1_demo_usb_1p1_demo_map.ncd.
+Design name: usb_2_spi_top_lat_bb
+NCD version: 3.3
+Vendor:      LATTICE
+Device:      LCMXO2-7000HE
+Package:     TQFP144
+Performance: 4
+Loading device for application par from file 'xo2c7000.nph' in environment: C:/lscc/diamond/3.10_x64/ispfpga.
+Package Status:                     Final          Version 1.39.
+Performance Hardware Data Status:   Final          Version 34.4.
+License checked out.
+
+
+Ignore Preference Error(s):  True
+Device utilization summary:
+
+   PIO (prelim)    7+4(JTAG)/336     3% used
+                   7+4(JTAG)/115     10% bonded
+   IOLOGIC            4/336           1% used
+
+   SLICE           1065/3432         31% used
+
+   GSR                1/1           100% used
+   OSC                1/1           100% used
+   JTAG               1/1           100% used
+   EBR                4/26           15% used
+   PLL                1/2            50% used
+
+
+INFO: Design contains EBR with ASYNC Reset Mode that has a limitation: The use of the EBR block asynchronous reset requires that certain timing be met between the clock and the reset within the memory block. See the device specific data sheet for additional details.
+WARNING - par: Input and feedback clock frequencies do not match their divider settings for pll_unit/PLLInst_0. If you desire to change the PLL frequency settings, please do so by regenerating your PLL module. 
+
+Number of Signals: 3250
+Number of Connections: 9655
+
+Pin Constraint Summary:
+   7 out of 7 pins locked (100% locked).
+
+The following 2 signals are selected to use the primary clock routing resources:
+    pll_clk (driver: pll_unit/PLLInst_0, clk load #: 479)
+    jtaghub16_jtck (driver: xo2chub/genblk7.jtagf_u, clk load #: 154)
+
+
+The following 8 signals are selected to use the secondary clock routing resources:
+    usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/reset_rvl_n (driver: usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/SLICE_1185, clk load #: 0, sr load #: 161, ce load #: 0)
+    jtaghub16_jrstn (driver: xo2chub/genblk7.jtagf_u, clk load #: 0, sr load #: 137, ce load #: 0)
+    jtaghub16_ip_enable0 (driver: xo2chub/SLICE_164, clk load #: 0, sr load #: 0, ce load #: 23)
+    usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/USBRST (driver: usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/SLICE_558, clk load #: 0, sr load #: 21, ce load #: 0)
+    usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/jtag_int_u/N_729_1 (driver: usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/jtag_int_u/SLICE_828, clk load #: 0, sr load #: 0, ce load #: 21)
+    usb_2_spi_unit/spi_master_1/N_26_i (driver: usb_2_spi_unit/spi_master_1/SLICE_473, clk load #: 0, sr load #: 0, ce load #: 17)
+    usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/tm_u/sample_en_d (driver: usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/tm_u/SLICE_331, clk load #: 0, sr load #: 0, ce load #: 16)
+    usb_2_spi_unit/usb_fs_slave_1/reset_int (driver: usb_2_spi_unit/usb_fs_slave_1/SLICE_1255, clk load #: 0, sr load #: 14, ce load #: 0)
+
+Signal usb_2_spi_unit/usb_fs_slave_1/reset_int is selected as Global Set/Reset.
+Starting Placer Phase 0.
+...........
+Finished Placer Phase 0.  REAL time: 5 secs 
+
+Starting Placer Phase 1.
+.......................
+Placer score = 498709.
+Finished Placer Phase 1.  REAL time: 22 secs 
+
+Starting Placer Phase 2.
+.
+Placer score =  492007
+Finished Placer Phase 2.  REAL time: 23 secs 
+
+
+------------------ Clock Report ------------------
+
+Global Clock Resources:
+  CLK_PIN    : 0 out of 8 (0%)
+  PLL        : 1 out of 2 (50%)
+  DCM        : 0 out of 2 (0%)
+  DCC        : 0 out of 8 (0%)
+
+Quadrants All (TL, TR, BL, BR) - Global Clocks:
+  PRIMARY "pll_clk" from CLKOP on comp "pll_unit/PLLInst_0" on PLL site "LPLL", clk load = 479
+  PRIMARY "jtaghub16_jtck" from JTCK on comp "xo2chub/genblk7.jtagf_u" on site "JTAG", clk load = 154
+  SECONDARY "usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/reset_rvl_n" from F1 on comp "usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/SLICE_1185" on site "R21C20D", clk load = 0, ce load = 0, sr load = 161
+  SECONDARY "jtaghub16_jrstn" from JRSTN on comp "xo2chub/genblk7.jtagf_u" on site "JTAG", clk load = 0, ce load = 0, sr load = 137
+  SECONDARY "jtaghub16_ip_enable0" from Q0 on comp "xo2chub/SLICE_164" on site "R21C18A", clk load = 0, ce load = 23, sr load = 0
+  SECONDARY "usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/USBRST" from Q0 on comp "usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/SLICE_558" on site "R21C20C", clk load = 0, ce load = 0, sr load = 21
+  SECONDARY "usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/jtag_int_u/N_729_1" from F1 on comp "usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/jtag_int_u/SLICE_828" on site "R14C18B", clk load = 0, ce load = 21, sr load = 0
+  SECONDARY "usb_2_spi_unit/spi_master_1/N_26_i" from F1 on comp "usb_2_spi_unit/spi_master_1/SLICE_473" on site "R14C18C", clk load = 0, ce load = 17, sr load = 0
+  SECONDARY "usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/tm_u/sample_en_d" from Q0 on comp "usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/tm_u/SLICE_331" on site "R14C18D", clk load = 0, ce load = 16, sr load = 0
+  SECONDARY "usb_2_spi_unit/usb_fs_slave_1/reset_int" from Q0 on comp "usb_2_spi_unit/usb_fs_slave_1/SLICE_1255" on site "R11C40A", clk load = 0, ce load = 0, sr load = 14
+
+  PRIMARY  : 2 out of 8 (25%)
+  SECONDARY: 8 out of 8 (100%)
+
+Edge Clocks:
+  No edge clock selected.
+
+--------------- End of Clock Report ---------------
+
+
+I/O Usage Summary (final):
+   7 + 4(JTAG) out of 336 (3.3%) PIO sites used.
+   7 + 4(JTAG) out of 115 (9.6%) bonded PIO sites used.
+   Number of PIO comps: 7; differential: 0.
+   Number of Vref pins used: 0.
+
+I/O Bank Usage Summary:
++----------+---------------+------------+-----------+
+| I/O Bank | Usage         | Bank Vccio | Bank Vref |
++----------+---------------+------------+-----------+
+| 0        | 4 / 28 ( 14%) | 3.3V       | -         |
+| 1        | 2 / 29 (  6%) | 3.3V       | -         |
+| 2        | 0 / 29 (  0%) | -          | -         |
+| 3        | 1 / 9 ( 11%)  | 3.3V       | -         |
+| 4        | 0 / 10 (  0%) | -          | -         |
+| 5        | 0 / 10 (  0%) | -          | -         |
++----------+---------------+------------+-----------+
+
+Total placer CPU time: 22 secs 
+
+Dumping design to file usb_1p1_demo_usb_1p1_demo.dir/5_1.ncd.
+
+0 connections routed; 9655 unrouted.
+Starting router resource preassignment
+
+WARNING - par: The following clock signals will be routed by using generic routing resource and may suffer from excessive delay and/or skew.
+   Signal=osc_clk loads=1 clock_loads=1
+
+Completed router resource preassignment. Real time: 27 secs 
+
+Start NBR router at 09:50:55 03/09/18
+
+*****************************************************************
+Info: NBR allows conflicts(one node used by more than one signal)
+      in the earlier iterations. In each iteration, it tries to  
+      solve the conflicts while keeping the critical connections 
+      routed as short as possible. The routing process is said to
+      be completed when no conflicts exist and all connections   
+      are routed.                                                
+Note: NBR uses a different method to calculate timing slacks. The
+      worst slack and total negative slack may not be the same as
+      that in TRCE report. You should always run TRCE to verify  
+      your design.                                               
+*****************************************************************
+
+Start NBR special constraint process at 09:50:56 03/09/18
+
+Start NBR section for initial routing at 09:50:56 03/09/18
+Level 1, iteration 1
+100(0.03%) conflicts; 7262(75.21%) untouched conns; 6657 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.505ns/-6.657ns; real time: 29 secs 
+Level 2, iteration 1
+8(0.00%) conflicts; 7260(75.19%) untouched conns; 9074 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.613ns/-9.075ns; real time: 29 secs 
+Level 3, iteration 1
+19(0.01%) conflicts; 6486(67.18%) untouched conns; 8803 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.556ns/-8.804ns; real time: 30 secs 
+Level 4, iteration 1
+291(0.08%) conflicts; 0(0.00%) untouched conn; 9650 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.621ns/-9.651ns; real time: 32 secs 
+
+Info: Initial congestion level at 75% usage is 0
+Info: Initial congestion area  at 75% usage is 0 (0.00%)
+
+Start NBR section for normal routing at 09:51:00 03/09/18
+Level 1, iteration 1
+17(0.00%) conflicts; 410(4.25%) untouched conns; 7725 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.492ns/-7.726ns; real time: 33 secs 
+Level 2, iteration 1
+7(0.00%) conflicts; 422(4.37%) untouched conns; 8974 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-8.975ns; real time: 33 secs 
+Level 3, iteration 1
+8(0.00%) conflicts; 415(4.30%) untouched conns; 8974 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-8.975ns; real time: 33 secs 
+Level 4, iteration 1
+144(0.04%) conflicts; 0(0.00%) untouched conn; 8067 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-8.067ns; real time: 34 secs 
+Level 4, iteration 2
+72(0.02%) conflicts; 0(0.00%) untouched conn; 8074 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-8.074ns; real time: 34 secs 
+Level 4, iteration 3
+24(0.01%) conflicts; 0(0.00%) untouched conn; 8067 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-8.067ns; real time: 34 secs 
+Level 4, iteration 4
+15(0.00%) conflicts; 0(0.00%) untouched conn; 8067 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-8.067ns; real time: 35 secs 
+Level 4, iteration 5
+9(0.00%) conflicts; 0(0.00%) untouched conn; 8067 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-8.067ns; real time: 35 secs 
+Level 4, iteration 6
+11(0.00%) conflicts; 0(0.00%) untouched conn; 8067 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-8.067ns; real time: 35 secs 
+Level 4, iteration 7
+6(0.00%) conflicts; 0(0.00%) untouched conn; 8848 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-8.848ns; real time: 35 secs 
+Level 4, iteration 8
+5(0.00%) conflicts; 0(0.00%) untouched conn; 8848 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-8.848ns; real time: 35 secs 
+Level 4, iteration 9
+2(0.00%) conflicts; 0(0.00%) untouched conn; 9709 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-9.710ns; real time: 35 secs 
+Level 4, iteration 10
+4(0.00%) conflicts; 0(0.00%) untouched conn; 9709 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-9.710ns; real time: 35 secs 
+Level 4, iteration 11
+1(0.00%) conflict; 0(0.00%) untouched conn; 8848 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-8.848ns; real time: 35 secs 
+Level 4, iteration 12
+1(0.00%) conflict; 0(0.00%) untouched conn; 8848 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-8.848ns; real time: 35 secs 
+Level 4, iteration 13
+1(0.00%) conflict; 0(0.00%) untouched conn; 9709 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-9.710ns; real time: 36 secs 
+Level 4, iteration 14
+2(0.00%) conflicts; 0(0.00%) untouched conn; 9709 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-9.710ns; real time: 36 secs 
+Level 4, iteration 15
+0(0.00%) conflict; 0(0.00%) untouched conn; 9817 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-9.817ns; real time: 36 secs 
+
+Start NBR section for performance tuning (iteration 1) at 09:51:04 03/09/18
+Level 4, iteration 1
+2(0.00%) conflicts; 0(0.00%) untouched conn; 8396 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-8.396ns; real time: 36 secs 
+Level 4, iteration 2
+1(0.00%) conflict; 0(0.00%) untouched conn; 13859 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.615ns/-13.860ns; real time: 36 secs 
+
+Start NBR section for re-routing at 09:51:04 03/09/18
+Level 4, iteration 1
+0(0.00%) conflict; 0(0.00%) untouched conn; 9817 (nbr) score; 
+Estimated worst slack/total negative slack<setup>: -0.557ns/-9.817ns; real time: 36 secs 
+
+Start NBR section for post-routing at 09:51:04 03/09/18
+
+End NBR router with 0 unrouted connection
+
+NBR Summary
+-----------
+  Number of unrouted connections : 0 (0.00%)
+  Number of connections with timing violations : 55 (0.57%)
+  Estimated worst slack<setup> : -0.557ns
+  Timing score<setup> : 1298
+-----------
+Notes: The timing info is calculated for SETUP only and all PAR_ADJs are ignored.
+
+
+
+WARNING - par: The following clock signals will be routed by using generic routing resource and may suffer from excessive delay and/or skew.
+   Signal=osc_clk loads=1 clock_loads=1
+
+Total CPU time 38 secs 
+Total REAL time: 39 secs 
+Completely routed.
+End of route.  9655 routed (100.00%); 0 unrouted.
+
+Hold time timing score: 0, hold timing errors: 0
+
+Timing score: 1298 
+
+Dumping design to file usb_1p1_demo_usb_1p1_demo.dir/5_1.ncd.
+
+
+All signals are completely routed.
+
+
+PAR_SUMMARY::Run status = Success
+PAR_SUMMARY::Number of unrouted conns = 0
+PAR_SUMMARY::Worst  slack<setup/<ns>> = -0.557
+PAR_SUMMARY::Timing score<setup/<ns>> = 1.298
+PAR_SUMMARY::Worst  slack<hold /<ns>> = 0.139
+PAR_SUMMARY::Timing score<hold /<ns>> = 0.000
+PAR_SUMMARY::Number of errors = 0
+
+Total CPU  time to completion: 39 secs 
+Total REAL time to completion: 40 secs 
+
+par done!
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights reserved.

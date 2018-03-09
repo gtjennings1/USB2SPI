@@ -1,0 +1,248 @@
+<HTML>
+<HEAD><TITLE>Lattice TCL Log</TITLE>
+<STYLE TYPE="text/css">
+<!--
+ body,pre{    font-family:'Courier New', monospace;    color: #000000;    font-size:88%;    background-color: #ffffff;}h1 {    font-weight: bold;    margin-top: 24px;    margin-bottom: 10px;    border-bottom: 3px solid #000;    font-size: 1em;}h2 {    font-weight: bold;    margin-top: 18px;    margin-bottom: 5px;    font-size: 0.90em;}h3 {    font-weight: bold;    margin-top: 12px;    margin-bottom: 5px;    font-size: 0.80em;}p {    font-size:78%;}P.Table {    margin-top: 4px;    margin-bottom: 4px;    margin-right: 4px;    margin-left: 4px;}table{    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    border-collapse: collapse;}th {    font-weight:bold;    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    text-align:left;    font-size:78%;}td {    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    font-size:78%;}a {    color:#013C9A;    text-decoration:none;}a:visited {    color:#013C9A;}a:hover, a:active {    text-decoration:underline;    color:#5BAFD4;}.pass{background-color: #00ff00;}.fail{background-color: #ff0000;}.comment{    font-size: 90%;    font-style: italic;}
+-->
+</STYLE>
+</HEAD>
+<PRE><A name="pn180213144819"></A><B><U><big>pn180213144819</big></U></B>
+#Start recording tcl command: 2/13/2018 13:37:18
+#Project Location: C:/projects/projects/USB to SPI Master Design/USB_Project/USB_12_10_13/USB_DEMO/implementation; Project name: usb_1p1_demo
+prj_project open "C:/projects/projects/USB to SPI Master Design/USB_Project/USB_12_10_13/USB_DEMO/implementation/usb_1p1_demo.ldf"
+prj_src remove "C:/projects/projects/USB to SPI Master Design/USB_Project/USB_12_10_13/USB_DEMO/implementation/usb_1p1_demo/usb_1p1_demo.xcf"
+prj_run Export -impl usb_1p1_demo -task Jedecgen -forceAll
+prj_run Export -impl usb_1p1_demo -task Jedecgen
+launch_synplify_prj usb_1p1_demo
+prj_run Export -impl usb_1p1_demo -task Jedecgen
+#Stop recording: 2/13/2018 14:48:19
+
+
+
+<A name="pn180213152854"></A><B><U><big>pn180213152854</big></U></B>
+#Start recording tcl command: 2/13/2018 15:19:02
+#Project Location: C:/projects/projects/USB to SPI Master Design/USB_Project/USB_12_10_13/USB_DEMO/implementation; Project name: usb_1p1_demo
+prj_project open "C:/projects/projects/USB to SPI Master Design/USB_Project/USB_12_10_13/USB_DEMO/implementation/usb_1p1_demo.ldf"
+launch_synplify_prj usb_1p1_demo
+#Stop recording: 2/13/2018 15:28:54
+
+
+
+<A name="pn180214083238"></A><B><U><big>pn180214083238</big></U></B>
+#Start recording tcl command: 2/13/2018 15:51:48
+#Project Location: C:/projects/projects/USB to SPI Master Design/USB_Project/USB_12_10_13/USB_DEMO/implementation; Project name: usb_1p1_demo
+prj_project open "C:/projects/projects/USB to SPI Master Design/USB_Project/USB_12_10_13/USB_DEMO/implementation/usb_1p1_demo.ldf"
+prj_run Export -impl usb_1p1_demo -task Jedecgen
+prj_run Export -impl usb_1p1_demo -task Jedecgen
+prj_run Export -impl usb_1p1_demo -task Jedecgen
+prj_run Export -impl usb_1p1_demo -task Jedecgen
+prj_run Export -impl usb_1p1_demo -task Jedecgen
+launch_synplify_prj usb_1p1_demo
+prj_run Export -impl usb_1p1_demo -task Jedecgen -forceAll
+prj_project save
+#Stop recording: 2/14/2018 08:32:38
+
+
+
+<A name="pn180307120425"></A><B><U><big>pn180307120425</big></U></B>
+#Start recording tcl command: 3/7/2018 08:30:18
+#Project Location: C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation; Project name: usb_1p1_demo
+C:/work/upwork/projects/usb_2_spi
+usb_2_spi
+#Start recording tcl command: 3/7/2018 12:04:24
+#Project Location: C:/work/upwork/projects/usb_2_spi; Project name: usb_2_spi
+prj_project open "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo.ldf"
+rva_project open "C:/work/upwork/projects/USB_DEMO_XO2_BoB/debug/untitled.rva"
+pgr_project save "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo/usb_1p1_demo.xcf"
+prj_src add -exclude "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo/usb_1p1_demo.xcf"
+prj_src enable "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo/usb_1p1_demo.xcf"
+pgr_program run
+rva_project run
+rva_project run
+rva_project run
+rva_project set -cabletype USB2
+rva_project set -cableport 1
+rva_project set -tckdelay 1
+rva_project run
+rva_trigoptn set -samples 1024
+rva_project run
+rva_tu set -name TU7 -value "1"
+rva_tu set -name TU1 -value "x"
+rva_tu set -name TU1 -value "0"
+rva_project run
+rva_tu set -name TU1 -value "1"
+rva_tu set -name TU7 -value "0"
+rva_project stop
+rva_project run
+rva_tu set -name TU7 -value "1"
+rva_te set -name TE1 -expression "TU7"
+rva_project run
+rvl_project open C:/work/upwork/projects/USB_DEMO_XO2_BoB/debug/usb_1p1_debug.rvl
+rvl_trace trc_option BufferDepth=2048
+rvl_trace add_sig  {{usb_fs_slave_1/usb_phy_1/i_rx_phy/datain_o[7:0]}}
+rvl_trace add_sig -insert_at usb_fs_slave_1/usb_phy_1/i_rx_phy/datain_o {{usb_fs_slave_1/phy_datain[7:0]}}
+rvl_trace add_sig -insert_at usb_fs_slave_1/phy_datain {{usb_fs_slave_1/usb_phy_1/datain_o[7:0]}}
+rvl_trace del_sig {usb_fs_slave_1/phy_datain}
+rvl_trace del_sig {usb_fs_slave_1/usb_phy_1/i_rx_phy/datain_o}
+rvl_trace add_sig -insert_at usb_fs_slave_1/usb_phy_1/datain_o {{usb_fs_slave_1/usb_phy_1/dataout_i[7:0]}}
+rvl_project save -overwrite C:/work/upwork/projects/USB_DEMO_XO2_BoB/debug/usb_1p1_debug.rvl
+prj_run Export -impl usb_1p1_demo -task Jedecgen
+pgr_program run
+rva_project close
+rva_project open "C:/work/upwork/projects/USB_DEMO_XO2_BoB/debug/untitled.rva"
+rva_project run
+rva_project set -cabletype USB2
+rva_project set -cableport 1
+rva_project set -tckdelay 1
+rva_project run
+rva_project stop
+rva_trigoptn set -samples 2048
+rva_project run
+rvl_tu add -radix Bin 
+rva_tu set -name TU5 -value "1"
+rva_te set -name TE1 -expression "TU5"
+rva_project run
+rva_tu set -name TU7 -value "1"
+rva_te set -name TE1 -expression "TU7"
+rva_project run
+rva_project stop
+rva_te set -name TE1 -expression "TU5"
+rva_project run
+rva_project run
+rva_project run
+rva_te set -name TE1 -expression "TU7"
+rva_project run
+rva_project save "C:/work/upwork/projects/USB_DEMO_XO2_BoB/debug/untitled.rva"
+rvl_project save -overwrite C:/work/upwork/projects/USB_DEMO_XO2_BoB/debug/usb_1p1_debug.rvl
+pgr_project save "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo/usb_1p1_demo.xcf"
+rva_project close
+rvl_project close -force
+prj_project save
+prj_project close
+prj_project open "C:/work/upwork/projects/usb_2_spi/usb_2_spi.ldf"
+#Stop recording: 3/7/2018 12:04:25
+
+
+
+<A name="pn180307121132"></A><B><U><big>pn180307121132</big></U></B>
+#Start recording tcl command: 3/7/2018 12:06:05
+#Project Location: C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation; Project name: usb_1p1_demo
+prj_project open "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo.ldf"
+pgr_project close
+pgr_project open "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo/usb_1p1_demo.xcf"
+pgr_program run
+prj_project close
+#Stop recording: 3/7/2018 12:11:32
+
+
+
+<A name="pn180307131516"></A><B><U><big>pn180307131516</big></U></B>
+#Start recording tcl command: 3/7/2018 13:14:10
+#Project Location: C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation; Project name: usb_1p1_demo
+prj_project open "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo.ldf"
+prj_project close
+#Stop recording: 3/7/2018 13:15:16
+
+
+
+<A name="pn180308075609"></A><B><U><big>pn180308075609</big></U></B>
+#Start recording tcl command: 3/8/2018 07:40:49
+#Project Location: C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation; Project name: usb_1p1_demo
+prj_project open "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo.ldf"
+pgr_project open "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo/usb_1p1_demo.xcf"
+pgr_program run
+prj_project close
+#Stop recording: 3/8/2018 07:56:09
+
+
+
+<A name="pn180308082117"></A><B><U><big>pn180308082117</big></U></B>
+#Start recording tcl command: 3/8/2018 08:19:37
+#Project Location: C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation; Project name: usb_1p1_demo
+prj_project open "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo.ldf"
+pgr_project close
+rvl_project open C:/work/upwork/projects/USB_DEMO_XO2_BoB/debug/usb_1p1_debug.rvl
+rvl_core rename usb_2upper_LA0 usb_2upper_LA0
+rvl_project close -force
+rvl_project open C:/work/upwork/projects/USB_DEMO_XO2_BoB/debug/usb_1p1_debug.rvl
+rvl_project close -force
+prj_project close
+#Stop recording: 3/8/2018 08:21:17
+
+
+
+<A name="pn180308082756"></A><B><U><big>pn180308082756</big></U></B>
+#Start recording tcl command: 3/8/2018 08:27:35
+#Project Location: C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation; Project name: usb_1p1_demo
+prj_project open "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo.ldf"
+rvl_project open C:/work/upwork/projects/USB_DEMO_XO2_BoB/debug/usb_1p1_debug.rvl
+rvl_project close -force
+prj_project close
+#Stop recording: 3/8/2018 08:27:56
+
+
+
+<A name="pn180308083711"></A><B><U><big>pn180308083711</big></U></B>
+#Start recording tcl command: 3/8/2018 08:35:21
+#Project Location: C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation; Project name: usb_1p1_demo
+prj_project open "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo.ldf"
+pgr_project close
+prj_project archive "C:/work/upwork/projects/usb_1p1_demo.zip"
+prj_project close
+#Stop recording: 3/8/2018 08:37:11
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></FONT>
+</BODY>
+</HTML>

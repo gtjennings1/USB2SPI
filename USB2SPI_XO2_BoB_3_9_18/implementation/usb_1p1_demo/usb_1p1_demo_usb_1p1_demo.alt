@@ -1,0 +1,15 @@
+NOTE Copyright (C), 1992-2010, Lattice Semiconductor Corporation *
+NOTE All Rights Reserved *
+NOTE DATE CREATED: Fri Mar 09 09:51:16 2018 *
+NOTE DESIGN NAME: usb_2_spi_top_lat_bb *
+NOTE DEVICE NAME: LCMXO2-7000HE-4TQFP144 *
+NOTE PIN ASSIGNMENTS *
+NOTE PINS usb_dp : 110 : inout *
+NOTE PINS mosi : 121 : out *
+NOTE PINS FPGA_ready : 97 : out *
+NOTE PINS rst_neg_ext : 33 : in *
+NOTE PINS miso : 122 : in *
+NOTE PINS LED_green : 98 : out *
+NOTE PINS usb_dn : 109 : inout *
+NOTE CONFIGURATION MODE: NONE *
+NOTE COMPRESSION: on *

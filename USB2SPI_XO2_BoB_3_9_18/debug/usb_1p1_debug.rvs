@@ -1,0 +1,39 @@
+<Project ModBy="Analyzer" Name="C:/work/upwork/projects/USB_DEMO_XO2_BoB/debug/usb_1p1_debug.rvs" Date="2018-03-09">
+ <Core Name="usb_2upper_LA0">
+  <Setting>
+   <Capture SamplesPerTrig="32" NumTrigsCap="4"/>
+   <Event EventCnt="0" CntEnableRun="0"/>
+   <TrigSetting PreTrgSamples="" AND_ALL="0" PostTrgSamples="" TURadix="0"/>
+  </Setting>
+  <Dataset Name="Base">
+   <Trace>
+    <Bus Name="usb_2_spi_unit/usb_rx_data" Radix="0">
+     <Sig Name="usb_2_spi_unit/usb_rx_data:0"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_data:1"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_data:2"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_data:3"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_data:4"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_data:5"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_data:6"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_data:7"/>
+    </Bus>
+    <Sig Name="usb_2_spi_unit/usb_rx_ready"/>
+    <Sig Name="usb_2_spi_unit/usb_rx_valid"/>
+    <Bus Name="usb_2_spi_unit/usb_tx_room" Radix="0">
+     <Sig Name="usb_2_spi_unit/usb_tx_room:0"/>
+     <Sig Name="usb_2_spi_unit/usb_tx_room:1"/>
+     <Sig Name="usb_2_spi_unit/usb_tx_room:2"/>
+     <Sig Name="usb_2_spi_unit/usb_tx_room:3"/>
+     <Sig Name="usb_2_spi_unit/usb_tx_room:4"/>
+     <Sig Name="usb_2_spi_unit/usb_tx_room:5"/>
+     <Sig Name="usb_2_spi_unit/usb_tx_room:6"/>
+     <Sig Name="usb_2_spi_unit/usb_tx_room:7"/>
+    </Bus>
+   </Trace>
+   <Trigger>
+    <TU Operator="6" Name="TU1" ID="1" Value="1" Radix="0"/>
+    <TE Enable="1" Expression="TU1" Name="TE1" ID="1"/>
+   </Trigger>
+  </Dataset>
+ </Core>
+</Project>

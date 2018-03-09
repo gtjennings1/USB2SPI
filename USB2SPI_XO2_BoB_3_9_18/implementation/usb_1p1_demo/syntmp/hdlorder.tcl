@@ -1,0 +1,1 @@
+project -fileorder "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo/reveal_workspace/tmpreveal/usb_2_spi_top_lat_bb_rvl_top.vhd" 

@@ -1,0 +1,12 @@
+#Start recording tcl command: 2/13/2018 15:51:48
+#Project Location: C:/projects/projects/USB to SPI Master Design/USB_Project/USB_12_10_13/USB_DEMO/implementation; Project name: usb_1p1_demo
+prj_project open "C:/projects/projects/USB to SPI Master Design/USB_Project/USB_12_10_13/USB_DEMO/implementation/usb_1p1_demo.ldf"
+prj_run Export -impl usb_1p1_demo -task Jedecgen
+prj_run Export -impl usb_1p1_demo -task Jedecgen
+prj_run Export -impl usb_1p1_demo -task Jedecgen
+prj_run Export -impl usb_1p1_demo -task Jedecgen
+prj_run Export -impl usb_1p1_demo -task Jedecgen
+launch_synplify_prj usb_1p1_demo
+prj_run Export -impl usb_1p1_demo -task Jedecgen -forceAll
+prj_project save
+#Stop recording: 2/14/2018 08:32:38

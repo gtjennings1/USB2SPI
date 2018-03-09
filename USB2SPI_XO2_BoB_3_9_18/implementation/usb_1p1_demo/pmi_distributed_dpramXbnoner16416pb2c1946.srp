@@ -1,0 +1,30 @@
+SCUBA, Version Diamond (64-bit) 3.10.0.111.2
+Fri Mar 09 09:50:24 2018
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights reserved.
+
+    Issued command   : C:/lscc/diamond/3.10_x64/ispfpga/bin/nt64/scuba -w -bus_exp 7 -bb -arch xo2c00 -type sdpram -num_rows 16 -data_width 16 -pipe_final_output -memformat bin -n pmi_distributed_dpramXbnoner16416pb2c1946 -pmi 
+    Circuit name     : pmi_distributed_dpramXbnoner16416pb2c1946
+    Module type      : sdpram
+    Module Version   : 3.9
+    Address width    : 4
+    Ports            : 
+	Inputs       : WrAddress[3:0], Data[15:0], WrClock, WE, WrClockEn, RdAddress[3:0], RdClock, RdClockEn, Reset
+	Outputs      : Q[15:0]
+    I/O buffer       : not inserted
+    Clock edge       : rising edge
+    EDIF output      : pmi_distributed_dpramXbnoner16416pb2c1946.edn
+    Bus notation     : big endian
+    Report output    : pmi_distributed_dpramXbnoner16416pb2c1946.srp
+    Element Usage    :
+        FD1P3DX : 16
+       ROM16X1A : 1
+       DPR16X4C : 4
+    Estimated Resource Usage:
+            LUT : 1
+           DRAM : 4
+            Reg : 16

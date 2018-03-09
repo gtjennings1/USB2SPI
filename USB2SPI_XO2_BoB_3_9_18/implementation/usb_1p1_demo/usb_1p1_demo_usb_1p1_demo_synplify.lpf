@@ -1,0 +1,24 @@
+#
+# Logical Preferences generated for Lattice by Synplify maplat, Build 1796R.
+#
+
+# Period Constraints 
+#FREQUENCY NET "pll_unit/pll_clk" 1.0 MHz;
+#FREQUENCY NET "usb_2_spi_top_lat_bb_reveal_coretop_instance/jtck[0]" 1.0 MHz;
+
+
+# Output Constraints 
+
+# Input Constraints 
+
+# Point-to-point Delay Constraints 
+
+
+
+# Block Path Constraints 
+#BLOCK PATH FROM CLKNET "usb_2_spi_top_lat_bb_reveal_coretop_instance/jtck[0]" TO CLKNET "pll_unit/pll_clk";
+#BLOCK PATH FROM CLKNET "pll_unit/pll_clk" TO CLKNET "usb_2_spi_top_lat_bb_reveal_coretop_instance/jtck[0]";
+
+BLOCK ASYNCPATHS;
+
+# End of generated Logical Preferences.

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiamondModule name="pll_60MHz" module="pll_60MHz" VendorName="Lattice Semiconductor Corporation" generator="IPexpress" date="2013 11 28 23:23:46.305" version="5.4" type="Module" synthesis="synplify" source_format="VHDL">
+  <Package>
+		<File name="pll_60MHz.lpc" type="lpc" modified="2013 11 28 23:23:44.051"/>
+		<File name="pll_60MHz.vhd" type="top_level_vhdl" modified="2013 11 28 23:23:44.157"/>
+		<File name="pll_60MHz_tmpl.vhd" type="template_vhdl" modified="2013 11 28 23:23:44.158"/>
+  </Package>
+</DiamondModule>

@@ -1,0 +1,290 @@
+---------------------------------------------------
+Report for cell usb_2_spi_top_lat_bb
+   Instance path: usb_2_spi_top_lat_bb
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	    1065.00        100.0
+                                 IOLGC	       4.00        100.0
+                                  LUT4	    1665.00        100.0
+                               DISTRAM	      42.00        100.0
+                                 IOREG	          4        100.0
+                                 IOBUF	          7        100.0
+                                PFUREG	       1025        100.0
+                                RIPPLE	        176        100.0
+                                   EBR	          4        100.0
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+                               xo2chub	          1         2.5
+                    usb_2_spi_uniq_0_0	          1        55.0
+                        reveal_coretop	          1        42.1
+                      pll_60MHz_uniq_0	          1         0.0
+---------------------------------------------------
+Report for cell usb_2_spi_uniq_0_0
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_unit
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	     585.92        55.0
+                                  LUT4	     949.00        57.0
+                                PFUREG	        454        44.3
+                                RIPPLE	        108        61.4
+                                   EBR	          2        50.0
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+usb_fs_port_uniq_0_work_usb_2_spi_top_lat_bb_rtl_0layer0	          1        50.1
+                 spi_master_uniq_0_1_8	          1         4.9
+---------------------------------------------------
+Report for cell spi_master_uniq_0_1_8
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_unit/spi_master_1
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      51.75         4.9
+                                  LUT4	      39.00         2.3
+                                PFUREG	         67         6.5
+                                RIPPLE	         34        19.3
+---------------------------------------------------
+Report for cell usb_fs_port_uniq_0_work_usb_2_spi_top_lat_bb_rtl_0layer0
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_unit/usb_fs_slave_1
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	     533.55        50.1
+                                  LUT4	     908.50        54.6
+                                PFUREG	        386        37.7
+                                RIPPLE	         74        42.0
+                                   EBR	          2        50.0
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+usb_serial_uniq_0_work_usb_2_spi_top_lat_bb_rtl_0layer0	          1        44.3
+                   usb_phy_uniq_0_true	          1         5.7
+---------------------------------------------------
+Report for cell usb_serial_uniq_0_work_usb_2_spi_top_lat_bb_rtl_0layer0
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_unit/usb_fs_slave_1/usb_serial_1
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	     471.52        44.3
+                                  LUT4	     808.50        48.6
+                                PFUREG	        286        27.9
+                                RIPPLE	         74        42.0
+                                   EBR	          2        50.0
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+             usb_transact_uniq_0_false	          1         5.9
+                     usb_packet_uniq_0	          1        18.0
+                 usb_init_uniq_0_false	          1         2.9
+                  usb_control_uniq_0_2	          1         9.1
+---------------------------------------------------
+Report for cell usb_control_uniq_0_2
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      97.25         9.1
+                                  LUT4	     182.00        10.9
+                                PFUREG	         67         6.5
+                                RIPPLE	          6         3.4
+---------------------------------------------------
+Report for cell usb_transact_uniq_0_false
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_transact_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      62.58         5.9
+                                  LUT4	     114.00         6.8
+                                PFUREG	         36         3.5
+                                RIPPLE	          5         2.8
+---------------------------------------------------
+Report for cell usb_packet_uniq_0
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_packet_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	     191.50        18.0
+                                  LUT4	     396.00        23.8
+                                PFUREG	         61         6.0
+---------------------------------------------------
+Report for cell usb_init_uniq_0_false
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      30.53         2.9
+                                  LUT4	      28.50         1.7
+                                PFUREG	         33         3.2
+                                RIPPLE	         16         9.1
+---------------------------------------------------
+Report for cell usb_phy_uniq_0_true
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_unit/usb_fs_slave_1/usb_phy_1
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      61.20         5.7
+                                  LUT4	      99.00         5.9
+                                PFUREG	         98         9.6
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+                     usb_rx_phy_uniq_0	          1         3.0
+                     usb_tx_phy_uniq_0	          1         2.8
+---------------------------------------------------
+Report for cell usb_rx_phy_uniq_0
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      31.62         3.0
+                                  LUT4	      54.00         3.2
+                                PFUREG	         50         4.9
+---------------------------------------------------
+Report for cell usb_tx_phy_uniq_0
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_tx_phy
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      29.58         2.8
+                                  LUT4	      45.00         2.7
+                                PFUREG	         48         4.7
+---------------------------------------------------
+Report for cell pll_60MHz_uniq_0
+   Instance path: usb_2_spi_top_lat_bb/pll_unit
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       0.50         0.0
+                                  LUT4	       1.00         0.1
+---------------------------------------------------
+Report for cell reveal_coretop
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_top_lat_bb_reveal_coretop_instance
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	     448.83        42.1
+                                  LUT4	     700.00        42.0
+                               DISTRAM	      38.00        90.5
+                                PFUREG	        520        50.7
+                                RIPPLE	         51        29.0
+                                   EBR	          2        50.0
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+                        usb_2upper_la0	          1        42.1
+---------------------------------------------------
+Report for cell usb_2upper_la0
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_top_lat_bb_reveal_coretop_instance/core0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	     448.83        42.1
+                                  LUT4	     700.00        42.0
+                               DISTRAM	      38.00        90.5
+                                PFUREG	        520        50.7
+                                RIPPLE	         51        29.0
+                                   EBR	          2        50.0
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+                   usb_2upper_la0_trig	          1        15.9
+                      rvl_tm_Z3_layer1	          1        15.2
+  rvl_jtag_int_18s_1s_0s_0s_5s_18s_18s	          1        11.0
+---------------------------------------------------
+Report for cell usb_2upper_la0_trig
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/trig_u
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	     169.53        15.9
+                                  LUT4	     286.50        17.2
+                               DISTRAM	      10.00        23.8
+                                PFUREG	        178        17.4
+                                RIPPLE	         13         7.4
+                                   EBR	          1        25.0
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+                 rvl_tu_1s_0s_0s_0s_1s	          1         0.6
+                      rvl_te_Z1_layer1	          1        13.2
+                   rvl_tcnt_1s_3s_1_0s	          1         1.0
+                      rvl_decode_1s_1s	          1         0.6
+---------------------------------------------------
+Report for cell rvl_decode_1s_1s
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/trig_u/decode_u
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       6.92         0.6
+                                  LUT4	      16.00         1.0
+---------------------------------------------------
+Report for cell rvl_tu_1s_0s_0s_0s_1s
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/trig_u/tu_0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	       6.92         0.6
+                                  LUT4	      14.00         0.8
+                                PFUREG	          8         0.8
+---------------------------------------------------
+Report for cell rvl_te_Z1_layer1
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/trig_u/te_0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	     140.08        13.2
+                                  LUT4	     226.00        13.6
+                               DISTRAM	      10.00        23.8
+                                PFUREG	        158        15.4
+                                RIPPLE	         13         7.4
+                                   EBR	          1        25.0
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+ pmi_ram_dpXbnonesadr16121612p1305c4af	          1         0.0
+---------------------------------------------------
+Report for cell pmi_ram_dpXbnonesadr16121612p1305c4af
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/trig_u/te_0/genblk1.te_tt_ebr_ram
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1        25.0
+---------------------------------------------------
+Report for cell rvl_tcnt_1s_3s_1_0s
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/trig_u/tcnt_0
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      10.53         1.0
+                                  LUT4	      20.50         1.2
+                                PFUREG	         12         1.2
+---------------------------------------------------
+Report for cell rvl_jtag_int_18s_1s_0s_0s_5s_18s_18s
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/jtag_int_u
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	     116.97        11.0
+                                  LUT4	     226.00        13.6
+                                PFUREG	        149        14.5
+                                RIPPLE	          7         4.0
+---------------------------------------------------
+Report for cell rvl_tm_Z3_layer1
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/tm_u
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	     162.00        15.2
+                                  LUT4	     186.50        11.2
+                               DISTRAM	      28.00        66.7
+                                PFUREG	        193        18.8
+                                RIPPLE	         31        17.6
+                                   EBR	          1        25.0
+SUB MODULES
+                                  cell	      count    SLC Usage(%)
+pmi_ram_dpXbnonesadr189512189512p134e1c11	          1         0.0
+pmi_distributed_dpramXbnoner9532pb1a27ff	          1         2.0
+pmi_distributed_dpramXbnoner16416pb2c1946	          1         1.1
+---------------------------------------------------
+Report for cell pmi_distributed_dpramXbnoner9532pb1a27ff
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/tm_u/genblk2.genblk1.trig_ptr_mem
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      21.67         2.0
+                                  LUT4	      11.00         0.7
+                               DISTRAM	      16.00        38.1
+                                PFUREG	          9         0.9
+---------------------------------------------------
+Report for cell pmi_distributed_dpramXbnoner16416pb2c1946
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/tm_u/genblk3.genblk1.pretrig_cap_mem
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      12.00         1.1
+                               DISTRAM	      12.00        28.6
+                                PFUREG	         16         1.6
+---------------------------------------------------
+Report for cell pmi_ram_dpXbnonesadr189512189512p134e1c11
+   Instance path: usb_2_spi_top_lat_bb/usb_2_spi_top_lat_bb_reveal_coretop_instance/core0/tm_u/genblk4.tr_mem
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                   EBR	          1        25.0
+---------------------------------------------------
+Report for cell xo2chub
+   Instance path: usb_2_spi_top_lat_bb/xo2chub
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  SLIC	      26.42         2.5
+                                  LUT4	      12.00         0.7
+                                PFUREG	         51         5.0
+                                RIPPLE	         17         9.7

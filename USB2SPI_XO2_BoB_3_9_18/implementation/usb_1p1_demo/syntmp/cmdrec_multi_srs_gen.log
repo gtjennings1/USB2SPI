@@ -1,0 +1,7 @@
+C:\lscc\diamond\3.10_x64\synpbase\bin64\syn_nfilter.exe  -link  -top  usb_2_spi_top_lat_bb  -multisrs  C:\work\upwork\projects\USB_DEMO_XO2_BoB\implementation\usb_1p1_demo\synwork\usb_1p1_demo_usb_1p1_demo_comp.srs  -osyn  C:\work\upwork\projects\USB_DEMO_XO2_BoB\implementation\usb_1p1_demo\synwork\usb_1p1_demo_usb_1p1_demo_mult.srs  -log  C:\work\upwork\projects\USB_DEMO_XO2_BoB\implementation\usb_1p1_demo\synlog\usb_1p1_demo_usb_1p1_demo_multi_srs_gen.srr 
+relcom:..\..\..\..\..\..\..\lscc\diamond\3.10_x64\synpbase\bin64\syn_nfilter.exe -link -top usb_2_spi_top_lat_bb -multisrs ..\synwork\usb_1p1_demo_usb_1p1_demo_comp.srs -osyn ..\synwork\usb_1p1_demo_usb_1p1_demo_mult.srs -log ..\synlog\usb_1p1_demo_usb_1p1_demo_multi_srs_gen.srr
+rc:0 success:1 runtime:1
+file:..\synwork\usb_1p1_demo_usb_1p1_demo_comp.srs|io:i|time:1520578201|size:212397|exec:0|csum:94D7D16B52B77C7015B6C5EC2C4F8A41
+file:..\synwork\usb_1p1_demo_usb_1p1_demo_mult.srs|io:o|time:1520578203|size:5263|exec:0|csum:
+file:..\synlog\usb_1p1_demo_usb_1p1_demo_multi_srs_gen.srr|io:o|time:1520578203|size:549|exec:0|csum:
+file:..\..\..\..\..\..\..\lscc\diamond\3.10_x64\synpbase\bin64\syn_nfilter.exe|io:i|time:1501881390|size:8865280|exec:1|csum:B37FCE9CF34F30C81898D8440E6E88C7

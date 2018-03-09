@@ -1,0 +1,5 @@
+#Start recording tcl command: 3/7/2018 13:14:10
+#Project Location: C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation; Project name: usb_1p1_demo
+prj_project open "C:/work/upwork/projects/USB_DEMO_XO2_BoB/implementation/usb_1p1_demo.ldf"
+prj_project close
+#Stop recording: 3/7/2018 13:15:16

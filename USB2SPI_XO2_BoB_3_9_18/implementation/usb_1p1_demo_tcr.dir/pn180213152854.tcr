@@ -1,0 +1,5 @@
+#Start recording tcl command: 2/13/2018 15:19:02
+#Project Location: C:/projects/projects/USB to SPI Master Design/USB_Project/USB_12_10_13/USB_DEMO/implementation; Project name: usb_1p1_demo
+prj_project open "C:/projects/projects/USB to SPI Master Design/USB_Project/USB_12_10_13/USB_DEMO/implementation/usb_1p1_demo.ldf"
+launch_synplify_prj usb_1p1_demo
+#Stop recording: 2/13/2018 15:28:54

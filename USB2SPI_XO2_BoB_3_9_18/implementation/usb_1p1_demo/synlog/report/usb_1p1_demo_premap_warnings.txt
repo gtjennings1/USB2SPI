@@ -1,0 +1,2 @@
+@W: FX474 |User-specified initial value defined for some sequential elements which can prevent optimum synthesis results from being achieved. 
+@W: MT529 :"c:\projects\projects\usb to spi master design\usb_project\usb_12_10_13\usb_demo\soucre\usb_phy\usb_tx_phy.vhd":183:4:183:5|Found inferred clock pll_60MHz|CLKOP_inferred_clock which controls 417 sequential elements including usb_fs_slave_1.usb_phy_1.i_tx_phy.bit_cnt[2:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
