@@ -1,0 +1,4 @@
+#Start recording tcl command: 3/9/2018 13:52:47
+#Project Location: C:/projects_2018/USB2SPI/trunk/USB2SPI_XO3LF_SKit_3_9_18/implementation; Project name: usb_1p1_demo
+prj_project open "C:/projects_2018/USB2SPI/trunk/USB2SPI_XO3LF_SKit_3_9_18/implementation/usb_1p1_demo.ldf"
+#Stop recording: 3/9/2018 13:52:51

@@ -1,0 +1,56 @@
+<Project ModBy="Inserter" SigType="0" Name="D:/DEMO_DESIGN/USB_1P1_DEMO/debug/usb_1p1_debug.rvl" Date="2013-11-29">
+    <IP Version="1_5_062609"/>
+    <Design DesignEntry="Schematic/VHDL" Synthesis="synplify" DeviceFamily="MachXO2" DesignName="usb_1p1_demo"/>
+    <Core InsertDataset="0" Insert="1" Reveal_sig="1996162375" Name="usb_2upper_LA0" ID="0">
+        <Setting>
+            <Clock SampleClk="clk_60mhz" SampleEnable="0" EnableClk="" EnableClk_Pri="0"/>
+            <TraceBuffer Implementation="0" BitTimeStamp="0" hasTimeStamp="0" IncTrigSig="0" BufferDepth="512"/>
+            <Capture Mode="1" MinSamplesPerTrig="16"/>
+            <Event CntEnable="0" MaxEventCnt="8"/>
+            <TrigOut Polarity="0" MinPulseWidth="0" TrigOutNetType="1" EnableTrigOut="0" TrigOutNet="reveal_debug_usb_2upper_LA0_net"/>
+        </Setting>
+        <Dataset Name="Base">
+            <Trace>
+                <Bus Name="usb_fs_slave_1/usb_serial_1/descrom_rdat">
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:0"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:1"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:2"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:3"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:4"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:5"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:6"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:7"/>
+                </Bus>
+                <Bus Name="usb_fs_slave_1/usb_serial_1/descrom_raddr">
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:0"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:1"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:2"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:3"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:4"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:5"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:6"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:7"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:8"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:9"/>
+                </Bus>
+                <Bus Name="usb_fs_slave_1/usb_serial_1/descrom_start">
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_start:0"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_start:1"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_start:2"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_start:3"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_start:4"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_start:5"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_start:6"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_start:7"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_start:8"/>
+                    <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/descrom_start:9"/>
+                </Bus>
+                <Sig Type="SIG" Name="usb_fs_slave_1/usb_serial_1/usbc_dscrd"/>
+            </Trace>
+            <Trigger>
+                <TU Serialbits="0" Type="0" ID="1" Sig="usb_fs_slave_1/usb_serial_1/usbc_dscrd,"/>
+                <TE MaxSequence="16" MaxEvnCnt="64" ID="1" Resource="1"/>
+            </Trigger>
+        </Dataset>
+    </Core>
+</Project>

@@ -1,0 +1,945 @@
+<HTML>
+<HEAD><TITLE>Project Summary</TITLE>
+<STYLE TYPE="text/css">
+<!--
+ body,pre{    font-family:'Courier New', monospace;    color: #000000;    font-size:88%;    background-color: #ffffff;}h1 {    font-weight: bold;    margin-top: 24px;    margin-bottom: 10px;    border-bottom: 3px solid #000;    font-size: 1em;}h2 {    font-weight: bold;    margin-top: 18px;    margin-bottom: 5px;    font-size: 0.90em;}h3 {    font-weight: bold;    margin-top: 12px;    margin-bottom: 5px;    font-size: 0.80em;}p {    font-size:78%;}P.Table {    margin-top: 4px;    margin-bottom: 4px;    margin-right: 4px;    margin-left: 4px;}table{    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    border-collapse: collapse;}th {    font-weight:bold;    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    text-align:left;    font-size:78%;}td {    padding: 4px;    border-width: 1px 1px 1px 1px;    border-style: solid solid solid solid;    border-color: black black black black;    vertical-align:top;    font-size:78%;}a {    color:#013C9A;    text-decoration:none;}a:visited {    color:#013C9A;}a:hover, a:active {    text-decoration:underline;    color:#5BAFD4;}.pass{background-color: #00ff00;}.fail{background-color: #ff0000;}.comment{    font-size: 90%;    font-style: italic;}
+-->
+</STYLE>
+</HEAD>
+<PRE><A name="Mrp"></A>
+     Lattice Mapping Report File for Design Module 'usb_2_spi_top_lat_bb'
+
+
+
+<A name="mrp_di"></A><B><U><big>Design Information</big></U></B>
+
+Command line:   map -a MachXO3LF -p LCMXO3LF-6900C -t CABGA256 -s 6 -oc
+     Commercial usb_1p1_demo_usb_1p1_demo.ngd -o
+     usb_1p1_demo_usb_1p1_demo_map.ncd -pr usb_1p1_demo_usb_1p1_demo.prf -mp
+     usb_1p1_demo_usb_1p1_demo.mrp -lpf C:/projects_2018/USB2SPI/trunk/USB2SPI_X
+     O3LF_SKit_3_9_18/implementation/usb_1p1_demo/usb_1p1_demo_usb_1p1_demo_synp
+     lify.lpf -lpf C:/projects_2018/USB2SPI/trunk/USB2SPI_XO3LF_SKit_3_9_18/impl
+     ementation/usb_1p1_demo.lpf -c 0 -gui -msgset C:/projects_2018/USB2SPI/trun
+     k/USB2SPI_XO3LF_SKit_3_9_18/implementation/promote.xml 
+Target Vendor:  LATTICE
+Target Device:  LCMXO3LF-6900CCABGA256
+Target Performance:   6
+Mapper:  xo3c00f,  version:  Diamond (64-bit) 3.9.0.99.2
+Mapped on:  03/09/18  13:44:26
+
+
+<A name="mrp_ds"></A><B><U><big>Design Summary</big></U></B>
+   Number of registers:    445 out of  7485 (6%)
+      PFU registers:          441 out of  6864 (6%)
+      PIO registers:            4 out of   621 (1%)
+   Number of SLICEs:       583 out of  3432 (17%)
+      SLICEs as Logic/ROM:    583 out of  3432 (17%)
+      SLICEs as RAM:            0 out of  2574 (0%)
+      SLICEs as Carry:        103 out of  3432 (3%)
+   Number of LUT4s:        1153 out of  6864 (17%)
+      Number used as logic LUTs:        947
+      Number used as distributed RAM:     0
+      Number used as ripple logic:      206
+      Number used as shift registers:     0
+   Number of PIO sites used: 9 + 4(JTAG) out of 207 (6%)
+   Number of block RAMs:  2 out of 26 (8%)
+   Number of GSRs:  1 out of 1 (100%)
+   EFB used :       No
+   JTAG used :      No
+   Readback used :  No
+   Oscillator used :  Yes
+   Startup used :   No
+   POR :            On
+   Bandgap :        On
+   Number of Power Controller:  0 out of 1 (0%)
+   Number of Dynamic Bank Controller (BCINRD):  0 out of 6 (0%)
+   Number of Dynamic Bank Controller (BCLVDSO):  0 out of 1 (0%)
+   Number of DCCA:  0 out of 8 (0%)
+   Number of DCMA:  0 out of 2 (0%)
+   Number of PLLs:  1 out of 2 (50%)
+   Number of DQSDLLs:  0 out of 2 (0%)
+   Number of CLKDIVC:  0 out of 4 (0%)
+   Number of ECLKSYNCA:  0 out of 4 (0%)
+   Number of ECLKBRIDGECS:  0 out of 2 (0%)
+   Notes:-
+      1. Total number of LUT4s = (Number of logic LUT4s) + 2*(Number of
+     distributed RAMs) + 2*(Number of ripple logic)
+      2. Number of logic LUT4s does not include count of distributed RAM and
+     ripple logic.
+   Number of clocks:  2
+
+     Net osc_clk: 1 loads, 1 rising, 0 falling (Driver: onchip_osc )
+     Net pll_clk: 275 loads, 275 rising, 0 falling (Driver: pll_unit/PLLInst_0 )
+     
+   Number of Clock Enables:  40
+     Net rst_neg_ext_c: 3 loads, 3 LSLICEs
+     Net mosi_1ce: 1 loads, 0 LSLICEs
+     Net usb_2_spi_unit.spi_master_1.rx_buffer_0_sqmuxa_1: 5 loads, 4 LSLICEs
+     Net usb_2_spi_unit/un1_spi_rx_valid: 1 loads, 0 LSLICEs
+     Net usb_2_spi_unit/spi_master_1/rx_data_0_sqmuxa_1: 4 loads, 4 LSLICEs
+     Net usb_2_spi_unit/spi_master_1/N_24: 5 loads, 5 LSLICEs
+     Net usb_2_spi_unit/spi_master_1/N_50_i: 17 loads, 17 LSLICEs
+     Net usb_2_spi_unit/q_rxbuf_read_1_reto: 4 loads, 4 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_rxvalid_RNIT61O: 1 loads,
+     0 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un1_txval: 4 loads, 4
+     LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usbc_dscrd: 4 loads, 4
+     LSLICEs
+     Net
+     usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/un1_reset_6_i:
+     1 loads, 1 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/s_desctyp_1
+     _sqmuxa: 2 loads, 2 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/s_ctlreques
+     t_1_sqmuxa: 2 loads, 2 LSLICEs
+     Net
+     usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/un1_reset_8_i:
+     4 loads, 4 LSLICEs
+     Net
+     usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/un1_reset_4_i:
+     4 loads, 4 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_transact_inst/s_endpt_RN
+     O[0]: 1 loads, 1 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_193: 4 loads, 4 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un2_usbi_usbrst_2_i: 4
+     loads, 4 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_transact_inst/un1_reset_
+     4_i: 2 loads, 2 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_transact_inst/s_state_7_
+     sqmuxadup: 1 loads, 1 LSLICEs
+     Net
+     usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_transact_inst/s_endptce[1]:
+     2 loads, 2 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un2_usbi_usbrst_6_i: 4
+     loads, 4 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_rxbuf_taile: 5 loads, 5
+     LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_packet_inst/N_449_i: 3
+     loads, 3 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_packet_inst/N_445_i: 9
+     loads, 9 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_packet_inst/un1_s_state_
+     5_i: 5 loads, 5 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un17_usbt_txrdy_reto: 4
+     loads, 4 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/fs_ce: 8 loads, 8 LSLICEs
+
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/un9_rx_active: 1
+     loads, 1 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/un57_fs_ce: 1 loads, 1
+     LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/un5_rx_valid1: 1
+     loads, 1 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/un6_se0: 1 loads, 1
+     LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/un73_fs_ce: 4 loads, 4
+     LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/un7_fs_ce: 4 loads, 4
+     LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_tx_phy/un1_sd_nrzi_o5_i: 1
+     loads, 1 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_tx_phy/un1_eop_done: 1 loads,
+     1 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_tx_phy/un6_ld_data: 4 loads,
+     4 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_tx_phy/un4_txvalid_i: 1
+     loads, 1 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_tx_phy/un1_append_eop_sync2:
+     1 loads, 1 LSLICEs
+   Number of local set/reset loads for net
+     usb_2_spi_unit/usb_fs_slave_1/reset_int merged into GSR:  73
+   Number of LSRs:  24
+     Net rst_neg_ext_c: 11 loads, 9 LSLICEs
+     Net usb_dn_in: 1 loads, 0 LSLICEs
+     Net rst_neg_ext_c_i: 1 loads, 0 LSLICEs
+     Net usb_2_spi_unit/spi_master_1/clk_toggles_0_sqmuxa_1: 4 loads, 4 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/reset_int: 14 loads, 14 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_reset_RNIBM8I: 3 loads, 3
+     LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_614_i: 1 loads, 1 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/USBRST: 22 loads, 22 LSLICEs
+     
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/s_answerptr
+     _0_sqmuxa: 5 loads, 5 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/s_setupptr_
+     0_sqmuxa_3: 2 loads, 2 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_transact_inst/wait_count
+     _1_sqmuxa: 5 loads, 5 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_packet_inst/s_state_RNIL
+     EEH[9]: 3 loads, 3 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_packet_inst/fb: 1 loads,
+     1 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/v_clrtimer2:
+     11 loads, 11 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/N_322_i: 5
+     loads, 5 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/rxdp_s: 1 loads, 1
+     LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/fb: 1 loads, 1 LSLICEs
+     
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/rxdp_s_r: 1 loads, 1
+     LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/rxdp_s0: 1 loads, 1
+
+     LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/rxdn_s_r: 1 loads, 1
+     LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/rxdn_s0: 1 loads, 1
+     LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_tx_phy/sd_raw_o_1: 1 loads, 1
+     LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_tx_phy/un2_ld_data_d_0_a3: 1
+     loads, 1 LSLICEs
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_tx_phy/un1_stuff: 1 loads, 1
+     LSLICEs
+   Number of nets driven by tri-state buffers:  0
+   Top 10 highest fanout non-clock nets:
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/USBRST: 114 loads
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/descrom_rdat_0_areg[2]: 46
+     loads
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/descrom_rdat_0_areg[3]: 46
+     loads
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/descrom_rdat_0_areg[1]: 44
+     loads
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/descrom_rdat_0_areg[5]: 44
+     loads
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_packet_inst/s_state[5]:
+     42 loads
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usbp_rxact: 40 loads
+     Net usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/fs_ce: 37 loads
+     Net usb_2_spi_unit/usb_fs_slave_1/reset_int: 34 loads
+     Net usb_2_spi_unit/spi_master_1/N_16_i: 33 loads
+
+
+
+
+   Number of warnings:  7
+   Number of errors:    0
+     
+
+
+
+
+<A name="mrp_dwe"></A><B><U><big>Design Errors/Warnings</big></U></B>
+
+WARNING - map: C:/projects_2018/USB2SPI/trunk/USB2SPI_XO3LF_SKit_3_9_18/implemen
+     tation/usb_1p1_demo.lpf(20): Semantic error in "FREQUENCY NET
+     "o_CLK_60MHz_c_c" 60.000000 MHz ;": o_CLK_60MHz_c_c matches no clock nets
+     in the design.  This preference has been disabled.
+WARNING - map: C:/projects_2018/USB2SPI/trunk/USB2SPI_XO3LF_SKit_3_9_18/implemen
+     tation/usb_1p1_demo.lpf(21): Semantic error in "FREQUENCY NET
+     "o_CLK_12MHz_c" 12.000000 MHz ;": o_CLK_12MHz_c matches no clock nets in
+     the design.  This preference has been disabled.
+WARNING - map: C:/projects_2018/USB2SPI/trunk/USB2SPI_XO3LF_SKit_3_9_18/implemen
+     tation/usb_1p1_demo.lpf(18): Semantic error in "IOBUF PORT "o_CLK_12MHz"
+     IO_TYPE=LVCMOS33 PULLMODE=NONE ;": Port "o_CLK_12MHz" does not exist in the
+     design. This preference has been disabled.
+WARNING - map: C:/projects_2018/USB2SPI/trunk/USB2SPI_XO3LF_SKit_3_9_18/implemen
+     tation/usb_1p1_demo.lpf(19): Semantic error in "IOBUF PORT "o_CLK_60MHz"
+     IO_TYPE=LVCMOS33 PULLMODE=NONE ;": Port "o_CLK_60MHz" does not exist in the
+     design. This preference has been disabled.
+WARNING - map: C:/projects_2018/USB2SPI/trunk/USB2SPI_XO3LF_SKit_3_9_18/implemen
+
+     tation/usb_1p1_demo.lpf(22): Semantic error in "LOCATE COMP "o_CLK_12MHz"
+     SITE "L2" ;": COMP "o_CLK_12MHz" cannot be found in design. This preference
+     has been disabled.
+WARNING - map: C:/projects_2018/USB2SPI/trunk/USB2SPI_XO3LF_SKit_3_9_18/implemen
+     tation/usb_1p1_demo.lpf(23): Semantic error in "LOCATE COMP "o_CLK_60MHz"
+     SITE "L3" ;": COMP "o_CLK_60MHz" cannot be found in design. This preference
+     has been disabled.
+WARNING - map: Using local reset signal
+     'usb_2_spi_unit/usb_fs_slave_1/reset_int' to infer global GSR net.
+
+
+
+<A name="mrp_ioa"></A><B><U><big>IO (PIO) Attributes</big></U></B>
+
++---------------------+-----------+-----------+------------+
+| IO Name             | Direction | Levelmode | IO         |
+|                     |           |  IO_TYPE  | Register   |
++---------------------+-----------+-----------+------------+
+| usb_dp              | BIDIR     | LVCMOS33  | IN         |
++---------------------+-----------+-----------+------------+
+| mosi                | OUTPUT    | LVCMOS33  | OUT        |
++---------------------+-----------+-----------+------------+
+| FPGA_ready          | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| rst_neg_ext         | INPUT     | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| ss_n                | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| sclk                | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| miso                | INPUT     | LVCMOS33  | IN         |
++---------------------+-----------+-----------+------------+
+| LED_green           | OUTPUT    | LVCMOS33  |            |
++---------------------+-----------+-----------+------------+
+| usb_dn              | BIDIR     | LVCMOS33  | OUT        |
++---------------------+-----------+-----------+------------+
+
+
+
+<A name="mrp_rm"></A><B><U><big>Removed logic</big></U></B>
+
+Block VCC undriven or does not drive anything - clipped.
+Block usb_2_spi_unit/GND undriven or does not drive anything - clipped.
+Block usb_2_spi_unit/VCC undriven or does not drive anything - clipped.
+Block usb_2_spi_unit/usb_fs_slave_1/VCC undriven or does not drive anything -
+     clipped.
+Block usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_tx_phy/VCC undriven or does not
+     drive anything - clipped.
+Block usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_tx_phy/GND undriven or does not
+     drive anything - clipped.
+Block usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/VCC undriven or does not
+     drive anything - clipped.
+Block usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/GND undriven or does not
+     drive anything - clipped.
+Block usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_packet_inst/VCC undriven or
+     does not drive anything - clipped.
+Block usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_packet_inst/GND undriven or
+     does not drive anything - clipped.
+
+Block usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_transact_inst/VCC undriven
+     or does not drive anything - clipped.
+Block usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/VCC undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_tx_phy/sd_raw_o_1_i was merged
+     into signal usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_tx_phy/sd_raw_o_1
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/rxdn_s0_i was merged
+     into signal usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/rxdn_s0
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/rxdp_s0_i was merged
+     into signal usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/rxdp_s0
+Signal mosi_cl_i was merged into signal usb_2_spi_unit/spi_master_1/mosi_cl
+Signal GND undriven or does not drive anything - clipped.
+Signal pll_unit/GND undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/GND undriven or does not drive anything -
+     clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/GND undriven or does not drive
+     anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/GND undriven or
+     does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_transact_inst/GND undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/GND undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/GND undriven or does not drive anything -
+     clipped.
+Signal VCC undriven or does not drive anything - clipped.
+Signal pll_unit/CLKINTFB undriven or does not drive anything - clipped.
+Signal pll_unit/DPHSRC undriven or does not drive anything - clipped.
+Signal pll_unit/PLLACK undriven or does not drive anything - clipped.
+Signal pll_unit/PLLDATO0 undriven or does not drive anything - clipped.
+Signal pll_unit/PLLDATO1 undriven or does not drive anything - clipped.
+Signal pll_unit/PLLDATO2 undriven or does not drive anything - clipped.
+Signal pll_unit/PLLDATO3 undriven or does not drive anything - clipped.
+Signal pll_unit/PLLDATO4 undriven or does not drive anything - clipped.
+Signal pll_unit/PLLDATO5 undriven or does not drive anything - clipped.
+Signal pll_unit/PLLDATO6 undriven or does not drive anything - clipped.
+Signal pll_unit/PLLDATO7 undriven or does not drive anything - clipped.
+Signal pll_unit/REFCLK undriven or does not drive anything - clipped.
+Signal pll_unit/INTLOCK undriven or does not drive anything - clipped.
+Signal pll_unit/CLKOS3 undriven or does not drive anything - clipped.
+Signal pll_unit/CLKOS2 undriven or does not drive anything - clipped.
+Signal pll_unit/CLKOS undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/txbuf_txbuf_0_0_DO17 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/txbuf_txbuf_0_0_DO8 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/txbuf_txbuf_0_0_DO7 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/txbuf_txbuf_0_0_DO6 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/txbuf_txbuf_0_0_DO5 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/txbuf_txbuf_0_0_DO4 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/txbuf_txbuf_0_0_DO3 undriven
+     or does not drive anything - clipped.
+
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/txbuf_txbuf_0_0_DO2 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/txbuf_txbuf_0_0_DO1 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/txbuf_txbuf_0_0_DO0 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_rxbuf_tail_cry_0_S0[0]
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_1 undriven or does not drive
+     anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_rxbuf_tail_s_0_S1[7]
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_rxbuf_tail_s_0_COUT[7]
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un1_q_txbuf_rdy_cry_0_0_S1
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un1_q_txbuf_rdy_cry_0_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_2 undriven or does not drive
+     anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un1_q_txbuf_rdy_s_7_0_S1
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un1_q_txbuf_rdy_s_7_0_COUT
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/RXLEN_cry_0_0_S1 undriven or
+     does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/RXLEN_cry_0_0_S0 undriven or
+     does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_4 undriven or does not drive
+     anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/RXLEN_s_7_0_S1 undriven or
+     does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/RXLEN_s_7_0_COUT undriven or
+     does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un1_s_bufptr_cry_0_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_5 undriven or does not drive
+     anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un1_s_bufptr_s_7_0_S1 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un1_s_bufptr_s_7_0_COUT
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un4_s_rxbuf_head_cry_1_0_S1
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un4_s_rxbuf_head_cry_1_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_6 undriven or does not drive
+     anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un4_s_rxbuf_head_cry_6_0_COUT
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un4_usbt_txrdy_0_N_17 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un4_usbt_txrdy_0_I_1_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_7 undriven or does not drive
+     anything - clipped.
+
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un4_usbt_txrdy_0_I_9_0_S1
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un4_usbt_txrdy_0_I_9_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un4_usbt_txrdy_0_I_21_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un4_usbt_txrdy_0_I_21_0_COUT
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un8_s_txbuf_tail_0_N_17
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un8_s_txbuf_tail_0_I_1_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_8 undriven or does not drive
+     anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un8_s_txbuf_tail_0_I_9_0_S1
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un8_s_txbuf_tail_0_I_9_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un8_s_txbuf_tail_0_I_21_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un8_s_txbuf_tail_0_I_21_0_COUT
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_796_i undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un7_usbt_endpt_0_I_1_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_9 undriven or does not drive
+     anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un7_usbt_endpt_0_I_9_0_S1
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un7_usbt_endpt_0_I_9_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un7_usbt_endpt_0_I_21_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un7_usbt_endpt_0_I_21_0_COUT
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_799_i undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_rxbuf_read_0_I_1_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_10 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_rxbuf_read_0_I_9_0_S1
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_rxbuf_read_0_I_9_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_rxbuf_read_0_I_21_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_rxbuf_read_0_I_21_0_COUT
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un6_usbt_fin_0_N_17 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un6_usbt_fin_0_I_1_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_11 undriven or does not
+     drive anything - clipped.
+
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un6_usbt_fin_0_I_9_0_S1
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un6_usbt_fin_0_I_9_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un6_usbt_fin_0_I_21_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un6_usbt_fin_0_I_21_0_COUT
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un3_q_txbuf_rdy_0_N_17
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un3_q_txbuf_rdy_0_I_1_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/N_12 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un3_q_txbuf_rdy_0_I_9_0_S1
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un3_q_txbuf_rdy_0_I_9_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un3_q_txbuf_rdy_0_I_21_0_S0
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/un3_q_txbuf_rdy_0_I_21_0_COUT
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/un16_s_timer1_cr
+     y_0_0_S1 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/un16_s_timer1_cr
+     y_0_0_S0 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/N_1 undriven or
+     does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/un16_s_timer1_s_
+     7_0_S1 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/un16_s_timer1_s_
+     7_0_COUT undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/un21_s_timer2_cr
+     y_0_0_S1 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/un21_s_timer2_cr
+     y_0_0_S0 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/N_2 undriven or
+     does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/un21_s_timer2_s_
+     19_0_S1 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/un21_s_timer2_s_
+     19_0_COUT undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_transact_inst/un1_wait_cou
+     nt_1_cry_0_0_S1 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_transact_inst/un1_wait_cou
+     nt_1_cry_0_0_S0 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_transact_inst/N_2 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_transact_inst/un1_wait_cou
+     nt_1_cry_7_0_COUT undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/N_828_i
+     undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/un21_s_answer
+     ptr_0_I_1_0_S0 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/N_2 undriven
+     or does not drive anything - clipped.
+
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/un21_s_answer
+     ptr_0_I_9_0_S1 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/un21_s_answer
+     ptr_0_I_9_0_S0 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/un21_s_answer
+     ptr_0_I_21_0_S0 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/un21_s_answer
+     ptr_0_I_21_0_COUT undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/un19_s_answer
+     ptr_0_N_17 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/un19_s_answer
+     ptr_0_I_1_0_S0 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/N_3 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/un19_s_answer
+     ptr_0_I_9_0_S1 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/un19_s_answer
+     ptr_0_I_9_0_S0 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/un19_s_answer
+     ptr_0_I_21_0_S0 undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/un19_s_answer
+     ptr_0_I_21_0_COUT undriven or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/rxbuf_rxbuf_0_0_DO17 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/rxbuf_rxbuf_0_0_DO8 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/rxbuf_rxbuf_0_0_DO7 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/rxbuf_rxbuf_0_0_DO6 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/rxbuf_rxbuf_0_0_DO5 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/rxbuf_rxbuf_0_0_DO4 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/rxbuf_rxbuf_0_0_DO3 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/rxbuf_rxbuf_0_0_DO2 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/rxbuf_rxbuf_0_0_DO1 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/rxbuf_rxbuf_0_0_DO0 undriven
+     or does not drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/count_s_0_S1[31] undriven or does not drive
+     anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/count_s_0_COUT[31] undriven or does not drive
+     anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un36_count_cry_0_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un36_count_cry_0_0_S0 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/N_2 undriven or does not drive anything -
+     clipped.
+Signal usb_2_spi_unit/spi_master_1/un36_count_cry_1_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un36_count_cry_1_0_S0 undriven or does not
+     drive anything - clipped.
+
+Signal usb_2_spi_unit/spi_master_1/un36_count_cry_3_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un36_count_cry_3_0_S0 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un36_count_cry_4_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un36_count_cry_4_0_COUT undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un26_count_cry_0_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un26_count_cry_0_0_S0 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/N_3 undriven or does not drive anything -
+     clipped.
+Signal usb_2_spi_unit/spi_master_1/un26_count_cry_1_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un26_count_cry_1_0_S0 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un26_count_cry_3_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un26_count_cry_3_0_S0 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un26_count_cry_4_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un26_count_cry_4_0_COUT undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_N_77 undriven or does not drive
+     anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_1_0_S0 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/N_4 undriven or does not drive anything -
+     clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_9_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_9_0_S0 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_51_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_51_0_S0 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_33_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_33_0_S0 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_27_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_27_0_S0 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_57_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_57_0_S0 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_21_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_21_0_S0 undriven or does not
+     drive anything - clipped.
+
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_81_0_S1 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_81_0_S0 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_45_0_S0 undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/un7_count_0_I_45_0_COUT undriven or does not
+     drive anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/count_cry_0_S0[0] undriven or does not drive
+     anything - clipped.
+Signal usb_2_spi_unit/spi_master_1/N_1 undriven or does not drive anything -
+     clipped.
+Signal onchip_osc_SEDSTDBY undriven or does not drive anything - clipped.
+Block usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_tx_phy/sd_raw_o_RNO was
+     optimized away.
+Block usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/rxdn_s_r_RNO was
+     optimized away.
+Block usb_2_spi_unit/usb_fs_slave_1/usb_phy_1/i_rx_phy/rxdp_s_r_RNO was
+     optimized away.
+Block usb_2_spi_unit/spi_master_1/mosi_cl_RNIEIFD was optimized away.
+Block GND was optimized away.
+Block pll_unit/GND was optimized away.
+Block usb_2_spi_unit/usb_fs_slave_1/GND was optimized away.
+Block usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/GND was optimized away.
+Block usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/GND was optimized
+     away.
+Block usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_transact_inst/GND was
+     optimized away.
+Block usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_control_inst/GND was
+     optimized away.
+Block usb_2_spi_unit/spi_master_1/GND was optimized away.
+
+
+
+<A name="mrp_mem"></A><B><U><big>Memory Usage</big></U></B>
+
+/usb_2_spi_unit/usb_fs_slave_1/usb_serial_1:
+    EBRs: 2
+    RAM SLICEs: 0
+    Logic SLICEs: 137
+    PFU Registers: 86
+    -Contains EBR rxbuf_rxbuf_0_0:  TYPE= PDPW8KC,  Width= 8,  Depth_R= 256,
+         Depth_W= 256,  REGMODE= NOREG,  RESETMODE= SYNC,  GSR= DISABLED
+    -Contains EBR txbuf_txbuf_0_0:  TYPE= PDPW8KC,  Width= 8,  Depth_R= 256,
+         Depth_W= 256,  REGMODE= NOREG,  RESETMODE= SYNC,  GSR= DISABLED
+
+     
+
+
+
+<A name="mrp_pll"></A><B><U><big>PLL/DLL Summary</big></U></B>
+---------------
+
+PLL 1:                                     Pin/Node Value
+  PLL Instance Name:                                pll_unit/PLLInst_0
+  PLL Type:                                         EHXPLLJ
+  Input Clock:                             NODE     osc_clk
+  Output Clock(P):                         NODE     pll_clk
+  Output Clock(S):                                  NONE
+
+  Output Clock(S2):                                 NONE
+  Output Clock(S3):                                 NONE
+  Feedback Signal:                         NODE     pll_clk
+  Reset Signal:                            NODE     rst_neg_ext_c_i
+  M Divider Reset Signal:                           NONE
+  C Divider Reset Signal:                           NONE
+  D Divider Reset Signal:                           NONE
+  Standby Signal:                                   NONE
+  PLL LOCK signal:                         NODE     pll_unit/pll_lock
+  PLL Data bus CLK Signal:                          NONE
+  PLL Data bus Strobe Signal:                       NONE
+  PLL Data bus Reset Signal:                        NONE
+  PLL Data bus Write Enable Signal:                 NONE
+  PLL Data bus Address0:                            NONE
+  PLL Data bus Address1:                            NONE
+  PLL Data bus Address2:                            NONE
+  PLL Data bus Address3:                            NONE
+  PLL Data bus Address4:                            NONE
+  PLL Data In bus Data0:                            NONE
+  PLL Data In bus Data1:                            NONE
+  PLL Data In bus Data2:                            NONE
+  PLL Data In bus Data3:                            NONE
+  PLL Data In bus Data4:                            NONE
+  PLL Data In bus Data5:                            NONE
+  PLL Data In bus Data6:                            NONE
+  PLL Data In bus Data7:                            NONE
+  PLL Data bus Acknowledge:                         NONE
+  PLL Data Out bus Data0:                           NONE
+  PLL Data Out bus Data1:                           NONE
+  PLL Data Out bus Data2:                           NONE
+  PLL Data Out bus Data3:                           NONE
+  PLL Data Out bus Data4:                           NONE
+  PLL Data Out bus Data5:                           NONE
+  PLL Data Out bus Data6:                           NONE
+  PLL Data Out bus Data7:                           NONE
+  Input Clock Frequency (MHz):                      11.5700
+  Output Clock(P) Frequency (MHz):                  60.0000
+  Output Clock(S) Frequency (MHz):                  NA
+  Output Clock(S2) Frequency (MHz):                 NA
+  Output Clock(S3) Frequency (MHz):                 NA
+  CLKOP Post Divider A Input:                       DIVA
+  CLKOS Post Divider B Input:                       DIVB
+  CLKOS2 Post Divider C Input:                      DIVC
+  CLKOS3 Post Divider D Input:                      DIVD
+  Pre Divider A Input:                              VCO_PHASE
+  Pre Divider B Input:                              VCO_PHASE
+  Pre Divider C Input:                              VCO_PHASE
+  Pre Divider D Input:                              VCO_PHASE
+  VCO Bypass A Input:                               VCO_PHASE
+  VCO Bypass B Input:                               VCO_PHASE
+  VCO Bypass C Input:                               VCO_PHASE
+  VCO Bypass D Input:                               VCO_PHASE
+  FB_MODE:                                          CLKOP
+  CLKI Divider:                                     1
+  CLKFB Divider:                                    5
+  CLKOP Divider:                                    9
+
+  CLKOS Divider:                                    1
+  CLKOS2 Divider:                                   1
+  CLKOS3 Divider:                                   1
+  Fractional N Divider:                             0
+  CLKOP Desired Phase Shift(degree):                0
+  CLKOP Trim Option Rising/Falling:                 RISING
+  CLKOP Trim Option Delay:                          0
+  CLKOS Desired Phase Shift(degree):                0
+  CLKOS Trim Option Rising/Falling:                 FALLING
+  CLKOS Trim Option Delay:                          0
+  CLKOS2 Desired Phase Shift(degree):               0
+  CLKOS3 Desired Phase Shift(degree):               0
+
+OSC Summary
+-----------
+
+OSC 1:                                     Pin/Node Value
+  OSC Instance Name:                                onchip_osc
+  OSC Type:                                         OSCH
+  STDBY Input:                                      NONE
+  OSC Output:                              NODE     osc_clk
+  OSC Nominal Frequency (MHz):                      11.57
+
+
+
+<A name="mrp_asic"></A><B><U><big>ASIC Components</big></U></B>
+---------------
+
+Instance Name: onchip_osc
+         Type: OSCH
+Instance Name: usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/rxbuf_rxbuf_0_0
+         Type: PDPW8KC
+Instance Name: usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/txbuf_txbuf_0_0
+         Type: PDPW8KC
+Instance Name: pll_unit/PLLInst_0
+         Type: EHXPLLJ
+
+
+
+<A name="mrp_gsr"></A><B><U><big>GSR Usage</big></U></B>
+---------
+
+GSR Component:
+   The local reset signal 'usb_2_spi_unit/usb_fs_slave_1/reset_int' of the
+        design has been inferred as Global Set Reset (GSR). The reset signal
+        used for GSR control is 'usb_2_spi_unit/usb_fs_slave_1/reset_int'.
+        
+
+     GSR Property:
+   The design components with GSR property set to ENABLED will respond to global
+        set reset while the components with GSR property set to DISABLED will
+        not.
+        
+
+     Components on inferred reset domain with GSR Property disabled
+--------------------------------------------------------------
+
+     These components have the GSR property set to DISABLED and are on the
+     inferred reset domain. The components will respond to the reset signal
+     'usb_2_spi_unit/usb_fs_slave_1/reset_int' via the local reset on the
+
+     component and not the GSR component.
+
+     Type and number of components of the type: 
+   Register = 26 
+
+     Type and instance name of component: 
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_txbuf_head[6]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_txbuf_head[5]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_txbuf_head[4]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_txbuf_head[3]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_txbuf_head[2]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_txbuf_head[1]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_txbuf_head[0]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_rxbuf_head[7]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_rxbuf_head[6]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_rxbuf_head[5]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_rxbuf_head[4]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_rxbuf_head[3]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_rxbuf_head[2]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_rxbuf_head[1]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_rxbuf_head[0]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_txbuf_tail[7]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_txbuf_tail[6]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_txbuf_tail[5]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_txbuf_tail[4]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_txbuf_tail[3]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_txbuf_tail[2]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_txbuf_tail[1]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/s_txbuf_tail[0]
+   Register :
+        usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/s_state[1]
+   Register :
+        usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/usb_init_inst/s_state[0]
+   Register : usb_2_spi_unit/usb_fs_slave_1/usb_serial_1/q_txbuf_head[7]
+
+
+
+<A name="mrp_runtime"></A><B><U><big>Run Time and Memory Usage</big></U></B>
+-------------------------
+
+   Total CPU Time: 1 secs  
+   Total REAL Time: 3 secs  
+   Peak Memory Usage: 72 MB
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+     Copyright (c) 1995 AT&T Corp.   All rights reserved.
+     Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+     Copyright (c) 2001 Agere Systems   All rights reserved.
+     Copyright (c) 2002-2017 Lattice Semiconductor Corporation,  All rights
+     reserved.
+
+
+
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</PRE></FONT>
+</BODY>
+</HTML>

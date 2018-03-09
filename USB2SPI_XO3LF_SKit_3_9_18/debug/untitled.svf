@@ -1,0 +1,4254 @@
+!
+! Diamond Reveal Analyzer SVF
+!
+! initialize SDR and SIR end state
+ENDDR IDLE;
+ENDIR IDLE;
+! initialize Header and Trailer
+HDR 0;
+HIR 0;
+TDR 0;
+TIR 0;
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! enable ER2
+SIR 8 TDI (38);
+! enable ER2
+SIR 8 TDI (38);
+! Set Odd Parity readback
+SDR 36 TDI (c20000000);
+SDR 36 TDI (c20000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Set Odd Parity
+SDR 36 TDI (020000000);
+
+! Set LA Start/Stop readback
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! Set LA Start/Stop 
+SDR 36 TDI (830000000);
+
+! Get Tracy Signature
+SDR 36 TDI (c30070000);
+SDR 36 TDI (c30070000) TDO (000000000) MASK (FFFFFFFFF);
+
+! Get Tracy Signature
+SDR 36 TDI (c30080000);
+SDR 36 TDI (c30080000) TDO (000000000) MASK (FFFFFFFFF);
+
+! Set Opcode Value
+SDR 36 TDI (800000006);
+
+! Set Mask Value
+SDR 36 TDI (800200001);
+
+! Set Then Num
+SDR 36 TDI (010000000);
+
+! Set NEXT THEN
+SDR 36 TDI (810040000);
+
+! Set Cnt Cntg
+SDR 36 TDI (010030000);
+
+! Set Event Count
+SDR 36 TDI (810100000);
+
+! Set Event Count
+SDR 36 TDI (010110000);
+
+! Set Event Count
+SDR 36 TDI (010120000);
+
+! Set Event Count
+SDR 36 TDI (810130000);
+
+! Set Event Count
+SDR 36 TDI (010140000);
+
+! Set Event Count
+SDR 36 TDI (810150000);
+
+! Set Event Count
+SDR 36 TDI (810160000);
+
+! Set Event Count
+SDR 36 TDI (010170000);
+
+! Set Event Count
+SDR 36 TDI (010180000);
+
+! Set Event Count
+SDR 36 TDI (810190000);
+
+! Set Event Count
+SDR 36 TDI (8101a0000);
+
+! Set Event Count
+SDR 36 TDI (0101b0000);
+
+! Set Event Count
+SDR 36 TDI (8101c0000);
+
+! Set Event Count
+SDR 36 TDI (0101d0000);
+
+! Set Event Count
+SDR 36 TDI (0101e0000);
+
+! Set Event Count
+SDR 36 TDI (8101f0000);
+
+! Get BurstWrite CRC
+SDR 36 TDI (c10050000);
+SDR 36 TDI (c10050000) TDO (000000000) MASK (FFFFFFFFF);
+
+! Set Truth Tbl Addr Cnter Init
+SDR 36 TDI (810020000);
+
+! Set Truth Table Prog
+SDR 36 TDI (810010000);
+
+! burst write
+SDR 32 TDI (0010000);
+
+!==> [JTAG] burst write 4 byte = 00010000
+
+! Get BurstWrite CRC
+SDR 36 TDI (c10050000);
+SDR 36 TDI (c10050000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] crc16 = 7BD6
+
+! Enable TE Trig
+SDR 36 TDI (020020001);
+
+! Get TE Trig Enbl
+SDR 36 TDI (420020000);
+SDR 36 TDI (420020000) TDO (000000000) MASK (FFFFFFFFF);
+
+! Enable Trig Output OR All readback
+SDR 36 TDI (c20000000);
+SDR 36 TDI (c20000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! Enable Trig Output OR All
+SDR 36 TDI (020000000);
+
+! Enable Multiple Trig
+SDR 36 TDI (830050000);
+
+! Get Multiple Trig Enbl
+SDR 36 TDI (430050000);
+SDR 36 TDI (430050000) TDO (000000000) MASK (FFFFFFFFF);
+
+! Set Pre-Trig Sample
+SDR 36 TDI (830010025);
+
+! Set Post-Trig Sample
+SDR 36 TDI (0300201da);
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! enable ER2
+SIR 8 TDI (38);
+! Set LA Start cores
+SDR 36 TDI (030000001);
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+
+! setTargetHubs
+! enable ER1
+SIR 8 TDI (32);
+! set reveal core
+SDR 21 TDI (00016);
+! enable ER2
+SIR 8 TDI (38);
+
+! Get Force Trigger bit
+SDR 36 TDI (430000000);
+SDR 36 TDI (430000000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Trig Detected Cnt
+SDR 36 TDI (430030000);
+SDR 36 TDI (430030000) TDO (000000000) MASK (FFFFFFFFF);
+
+! enable ER2
+SIR 8 TDI (38);
+! Get Mem Block Full Cnt
+SDR 36 TDI (c30040000);
+SDR 36 TDI (c30040000) TDO (000000000) MASK (FFFFFFFFF);
+
+!==> [JTAG] tmMemFullCnt = 0
+

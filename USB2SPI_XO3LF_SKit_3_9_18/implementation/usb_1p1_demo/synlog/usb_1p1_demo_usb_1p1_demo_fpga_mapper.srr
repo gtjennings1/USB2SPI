@@ -1,0 +1,509 @@
+# Fri Mar 09 13:44:15 2018
+
+Synopsys Lattice Technology Mapper, Version maplat, Build 1612R, Built Dec  5 2016 10:33:02
+Copyright (C) 1994-2016 Synopsys, Inc. All rights reserved. This Synopsys software and all associated documentation are proprietary to Synopsys, Inc. and may only be used pursuant to the terms and conditions of a written license agreement with Synopsys, Inc. All other use, reproduction, modification, or distribution of the Synopsys software or the associated documentation is strictly prohibited.
+Product Version L-2016.09L
+
+Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 99MB)
+
+@N: MF248 |Running in 64-bit mode.
+@N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
+
+Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 100MB)
+
+
+Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 100MB)
+
+
+Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 112MB)
+
+
+Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 114MB)
+
+
+
+Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 141MB peak: 143MB)
+
+@W: BN132 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\spi_master\spi_master.vhd":73:4:73:5|Removing sequential instance usb_2_spi_unit.spi_master_1.last_bit_rx[0] because it is equivalent to instance usb_2_spi_unit.spi_master_1.clk_ratio[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+
+Available hyper_sources - for debug and ip models
+	None Found
+
+@N: FX493 |Applying initial value "0000" on instance usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_transact_inst.s_endpt[3:0].
+@N: FX493 |Applying initial value "0000000" on instance usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_addr[6:0].
+@N: FX493 |Applying initial value "00" on instance usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.s_halt_in[1:2].
+
+Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 141MB peak: 143MB)
+
+Encoding state machine state[0:5] (in view: work.usb_tx_phy(rtl))
+original code -> new code
+   000 -> 000001
+   001 -> 000010
+   010 -> 000100
+   011 -> 001000
+   100 -> 010000
+   101 -> 100000
+Encoding state machine fs_state[0:7] (in view: work.usb_rx_phy(rtl))
+original code -> new code
+   000 -> 00000001
+   001 -> 00000010
+   010 -> 00000100
+   011 -> 00001000
+   100 -> 00010000
+   101 -> 00100000
+   110 -> 01000000
+   111 -> 10000000
+Encoding state machine s_state[0:7] (in view: work.usb_serial(usb_serial_arch))
+original code -> new code
+   00000001 -> 00000001
+   00000010 -> 00000010
+   00000100 -> 00000100
+   00001000 -> 00001000
+   00010000 -> 00010000
+   00100000 -> 00100000
+   01000000 -> 01000000
+   10000000 -> 10000000
+@N: MO231 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\usb_serial\usb_serial.vhd":564:11:564:22|Found counter in view:work.usb_serial(usb_serial_arch) instance q_rxbuf_tail[7:0] 
+@N: MF179 :|Found 8 by 8 bit equality operator ('==') un3_q_txbuf_rdy (in view: work.usb_serial(usb_serial_arch))
+@N: MF179 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\usb_serial\usb_serial.vhd":1040:27:1040:63|Found 8 by 8 bit equality operator ('==') un6_usbt_fin (in view: work.usb_serial(usb_serial_arch))
+@N: MF179 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\usb_serial\usb_serial.vhd":734:51:734:78|Found 8 by 8 bit equality operator ('==') q_rxbuf_read (in view: work.usb_serial(usb_serial_arch))
+@N: MF179 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\usb_serial\usb_serial.vhd":922:31:922:58|Found 8 by 8 bit equality operator ('==') un7_usbt_endpt (in view: work.usb_serial(usb_serial_arch))
+@N: MF179 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\usb_serial\usb_serial.vhd":989:52:989:98|Found 8 by 8 bit equality operator ('==') un8_s_txbuf_tail (in view: work.usb_serial(usb_serial_arch))
+@N: MF179 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\usb_serial\usb_serial.vhd":1014:28:1014:74|Found 8 by 8 bit equality operator ('==') un4_usbt_txrdy (in view: work.usb_serial(usb_serial_arch))
+Encoding state machine s_state[0:3] (in view: work.usb_init(usb_init_arch))
+original code -> new code
+   000000001 -> 00
+   000000010 -> 01
+   000000100 -> 10
+   000001000 -> 11
+@N: MO225 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\usb_serial\usb_init.vhd":97:11:97:17|There are no possible illegal states for state machine s_state[0:3] (in view: work.usb_init(usb_init_arch)); safe FSM implementation is not required.
+Encoding state machine s_state[0:9] (in view: work.usb_packet(usb_packet_arch))
+original code -> new code
+   0000000001 -> 0000000001
+   0000000010 -> 0000000010
+   0000000100 -> 0000000100
+   0000001000 -> 0000001000
+   0000010000 -> 0000010000
+   0000100000 -> 0000100000
+   0001000000 -> 0001000000
+   0010000000 -> 0010000000
+   0100000000 -> 0100000000
+   1000000000 -> 1000000000
+@W: MO129 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\usb_serial\usb_packet.vhd":120:11:120:17|Sequential instance usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_packet_inst.s_state[8] is reduced to a combinational gate by constant propagation.
+Encoding state machine s_state[0:13] (in view: work.usb_transact(usb_transact_arch))
+original code -> new code
+   00000000000001 -> 00000000000001
+   00000000000010 -> 00000000000010
+   00000000000100 -> 00000000000100
+   00000000001000 -> 00000000001000
+   00000000010000 -> 00000000010000
+   00000000100000 -> 00000000100000
+   00000001000000 -> 00000001000000
+   00000010000000 -> 00000010000000
+   00000100000000 -> 00000100000000
+   00001000000000 -> 00001000000000
+   00010000000000 -> 00010000000000
+   00100000000000 -> 00100000000000
+   01000000000000 -> 01000000000000
+   10000000000000 -> 10000000000000
+@N: MF179 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\usb_serial\usb_transact.vhd":366:6:366:34|Found 7 by 7 bit equality operator ('==') un17_p_rxrdy (in view: work.usb_transact(usb_transact_arch))
+Encoding state machine s_state[0:10] (in view: work.usb_control(usb_control_arch))
+original code -> new code
+   00000000001 -> 0000
+   00000000010 -> 0001
+   00000000100 -> 0010
+   00000001000 -> 0011
+   00000010000 -> 0100
+   00000100000 -> 0101
+   00001000000 -> 0110
+   00010000000 -> 0111
+   00100000000 -> 1000
+   01000000000 -> 1001
+   10000000000 -> 1010
+@N: BN362 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\usb_serial\usb_control.vhd":136:8:136:16|Removing sequential instance C_SHLTOUT[2] (in view: work.usb_control(usb_control_arch)) because it does not drive other instances.
+@N: BN362 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\usb_serial\usb_control.vhd":124:8:124:15|Removing sequential instance C_CLROUT[2] (in view: work.usb_control(usb_control_arch)) because it does not drive other instances.
+@N: MF179 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\usb_serial\usb_control.vhd":559:27:559:48|Found 8 by 8 bit equality operator ('==') un19_s_answerptr (in view: work.usb_control(usb_control_arch))
+@N: MF179 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\usb_serial\usb_control.vhd":560:27:560:51|Found 8 by 8 bit equality operator ('==') un21_s_answerptr (in view: work.usb_control(usb_control_arch))
+@N: MO231 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\spi_master\spi_master.vhd":73:4:73:5|Found counter in view:work.spi_master(logic) instance count[31:0] 
+@N: MF179 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\spi_master\spi_master.vhd":119:13:119:29|Found 32 by 32 bit equality operator ('==') un7_count (in view: work.spi_master(logic))
+
+Starting factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 147MB peak: 149MB)
+
+
+Finished factoring (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 158MB peak: 159MB)
+
+
+Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 156MB peak: 161MB)
+
+
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:02s; Memory used current: 156MB peak: 166MB)
+
+@N: FA113 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\spi_master\spi_master.vhd":73:4:73:5|Pipelining module un1_clk_toggles_1[4:0]. For more information, search for "pipelining" in Online Help.
+@N: MF169 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\spi_master\spi_master.vhd":73:4:73:5|Pushed in register clk_toggles[4:0].
+
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 156MB peak: 166MB)
+
+
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 156MB peak: 166MB)
+
+
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 156MB peak: 166MB)
+
+@N: FX214 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\usb_serial\usb_serial.vhd":1150:20:1150:26|Generating ROM usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.descrom_rdat_0[7:0] (in view: work.usb_2_spi_top_lat_bb(rtl)).
+
+Finished preparing to map (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 156MB peak: 166MB)
+
+
+Finished technology mapping (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:04s; Memory used current: 192MB peak: 195MB)
+
+Pass		 CPU time		Worst Slack		Luts / Registers
+------------------------------------------------------------
+   1		0h:00m:04s		   984.00ns		 907 /       446
+
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 193MB peak: 195MB)
+
+@N: FX164 |The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.  
+@W: MO161 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\spi_master\spi_master.vhd":73:4:73:5|Register bit usb_2_spi_unit.spi_master_1.clk_ratio[0] (in view view:work.usb_2_spi_top_lat_bb(rtl)) is always 1. To keep the instance, apply syn_preserve=1 on the instance.
+
+Finished restoring hierarchy (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 193MB peak: 195MB)
+
+
+
+@S |Clock Optimization Summary
+
+
+#### START OF CLOCK OPTIMIZATION REPORT #####[
+
+0 non-gated/non-generated clock tree(s) driving 0 clock pin(s) of sequential element(s)
+1 gated/generated clock tree(s) driving 449 clock pin(s) of sequential element(s)
+0 instances converted, 449 sequential instances remain driven by gated/generated clocks
+
+======================================================================================================================= Gated/Generated Clocks ========================================================================================================================
+Clock Tree ID     Driving Element        Drive Element Type     Fanout     Sample Instance                                               Explanation                                                                                                                   
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@K:CKID0001       pll_unit.PLLInst_0     EHXPLLJ                449        usb_2_spi_unit_usb_fs_slave_1_usb_phy_1_i_rx_phy_rxd_s0io     Gating structure creates improper gating logic. See the Gated Clocks description in the user guide for conversion requirements
+=======================================================================================================================================================================================================================================================================
+
+
+##### END OF CLOCK OPTIMIZATION REPORT ######]
+
+
+Start Writing Netlists (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:05s; Memory used current: 155MB peak: 195MB)
+
+Writing Analyst data base C:\projects_2018\USB2SPI\trunk\USB2SPI_XO3LF_SKit_3_9_18\implementation\usb_1p1_demo\synwork\usb_1p1_demo_usb_1p1_demo_m.srm
+
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:06s; CPU Time elapsed 0h:00m:06s; Memory used current: 192MB peak: 195MB)
+
+Writing EDIF Netlist and constraint files
+@N: FX1056 |Writing EDF file: C:\projects_2018\USB2SPI\trunk\USB2SPI_XO3LF_SKit_3_9_18\implementation\usb_1p1_demo\usb_1p1_demo_usb_1p1_demo.edi
+L-2016.09L
+@N: BW106 |Synplicity Constraint File capacitance units using default value of 1pF 
+
+Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:06s; Memory used current: 196MB peak: 199MB)
+
+
+Start final timing analysis (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:06s; Memory used current: 192MB peak: 199MB)
+
+@W: MT246 :"c:\projects_2018\usb2spi\trunk\usb2spi_xo2_bob_3_9_18\soucre\cores\pll_60mhz.vhd":109:4:109:12|Blackbox EHXPLLJ is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results) 
+@W: MT420 |Found inferred clock pll_60MHz|CLKOP_inferred_clock with period 1000.00ns. Please declare a user-defined clock on object "n:pll_unit.CLKOP"
+
+
+##### START OF TIMING REPORT #####[
+# Timing Report written on Fri Mar 09 13:44:23 2018
+#
+
+
+Top view:               usb_2_spi_top_lat_bb
+Requested Frequency:    1.0 MHz
+Wire load mode:         top
+Paths requested:        5
+Constraint File(s):    
+@N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
+
+@N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.
+
+
+
+Performance Summary
+*******************
+
+
+Worst slack in design: 984.818
+
+@N: MT286 |System clock period 0.000 stretches to negative invalid value -- ignoring stretching.
+                                   Requested     Estimated     Requested     Estimated                  Clock        Clock              
+Starting Clock                     Frequency     Frequency     Period        Period        Slack        Type         Group              
+----------------------------------------------------------------------------------------------------------------------------------------
+pll_60MHz|CLKOP_inferred_clock     1.0 MHz       65.9 MHz      1000.000      15.182        984.818      inferred     Inferred_clkgroup_0
+System                             1.0 MHz       NA            1000.000      0.000         1000.000     system       system_clkgroup    
+========================================================================================================================================
+@N: MT582 |Estimated period and frequency not reported for given clock unless the clock has at least one timing path which is not a false or a max delay path and that does not have excessive slack
+
+
+
+
+
+Clock Relationships
+*******************
+
+Clocks                                                          |    rise  to  rise      |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Starting                        Ending                          |  constraint  slack     |  constraint  slack  |  constraint  slack  |  constraint  slack
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+System                          System                          |  1000.000    1000.000  |  No paths    -      |  No paths    -      |  No paths    -    
+pll_60MHz|CLKOP_inferred_clock  pll_60MHz|CLKOP_inferred_clock  |  1000.000    984.819   |  No paths    -      |  No paths    -      |  No paths    -    
+=========================================================================================================================================================
+ Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
+       'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
+
+
+
+Interface Information 
+*********************
+
+No IO constraint found
+
+
+
+====================================
+Detailed Report for Clock: pll_60MHz|CLKOP_inferred_clock
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+                                                                              Starting                                                                   Arrival            
+Instance                                                                      Reference                          Type        Pin      Net                Time        Slack  
+                                                                              Clock                                                                                         
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_ctlparam[7]     pll_60MHz|CLKOP_inferred_clock     FD1P3AX     Q        usbc_dscinx[7]     1.220       984.818
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.txbuf_txbuf_0_0                    pll_60MHz|CLKOP_inferred_clock     PDPW8KC     DO9      txbuf_reto[0]      7.717       984.821
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_ctlparam[1]     pll_60MHz|CLKOP_inferred_clock     FD1P3AX     Q        usbc_dscinx[1]     1.204       984.835
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_ctlparam[2]     pll_60MHz|CLKOP_inferred_clock     FD1P3AX     Q        usbc_dscinx[2]     1.180       984.859
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_ctlparam[3]     pll_60MHz|CLKOP_inferred_clock     FD1P3AX     Q        usbc_dscinx[3]     1.180       984.859
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.txbuf_txbuf_0_0                    pll_60MHz|CLKOP_inferred_clock     PDPW8KC     DO13     txbuf_reto[4]      7.717       985.181
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.txbuf_txbuf_0_0                    pll_60MHz|CLKOP_inferred_clock     PDPW8KC     DO15     txbuf_reto[6]      7.717       985.686
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.txbuf_txbuf_0_0                    pll_60MHz|CLKOP_inferred_clock     PDPW8KC     DO10     txbuf_reto[1]      7.717       985.846
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_ctlparam[4]     pll_60MHz|CLKOP_inferred_clock     FD1P3AX     Q        usbc_dscinx[4]     1.108       986.083
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_ctlparam[5]     pll_60MHz|CLKOP_inferred_clock     FD1P3AX     Q        usbc_dscinx[5]     1.108       986.083
+============================================================================================================================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                                                                              Starting                                                                           Required            
+Instance                                                                      Reference                          Type        Pin     Net                         Time         Slack  
+                                                                              Clock                                                                                                  
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_state[1]        pll_60MHz|CLKOP_inferred_clock     FD1S3IX     D       N_54_i                      1000.089     984.818
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_packet_inst.crc16_buf[8]       pll_60MHz|CLKOP_inferred_clock     FD1P3AX     D       N_889_i                     999.894      984.821
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_packet_inst.s_rxgoodpacket     pll_60MHz|CLKOP_inferred_clock     FD1S3JX     D       s_rxgoodpacket_0_sqmuxa     1000.089     985.181
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_packet_inst.crc16_buf[0]       pll_60MHz|CLKOP_inferred_clock     FD1P3AX     D       crc16_buf_5[0]              1000.089     985.686
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_packet_inst.crc16_buf[1]       pll_60MHz|CLKOP_inferred_clock     FD1P3AX     D       crc16_buf_5[1]              1000.089     985.686
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_packet_inst.crc16_buf[15]      pll_60MHz|CLKOP_inferred_clock     FD1P3AX     D       crc16_buf_5[15]             1000.089     985.686
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_state[0]        pll_60MHz|CLKOP_inferred_clock     FD1S3IX     D       s_state_ns[0]               1000.089     985.835
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_packet_inst.crc16_buf[3]       pll_60MHz|CLKOP_inferred_clock     FD1P3AX     D       N_646                       1000.089     985.934
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_packet_inst.crc16_buf[6]       pll_60MHz|CLKOP_inferred_clock     FD1P3AX     D       N_790                       1000.089     986.133
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_packet_inst.crc16_buf[4]       pll_60MHz|CLKOP_inferred_clock     FD1P3AX     D       N_694                       1000.089     986.269
+=====================================================================================================================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      1000.000
+    - Setup time:                            -0.089
+    + Clock delay at ending point:           0.000 (ideal)
+    = Required time:                         1000.089
+
+    - Propagation time:                      15.270
+    - Clock delay at starting point:         0.000 (ideal)
+    = Slack (critical) :                     984.818
+
+    Number of logic level(s):                14
+    Starting point:                          usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_ctlparam[7] / Q
+    Ending point:                            usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_state[1] / D
+    The start point is clocked by            pll_60MHz|CLKOP_inferred_clock [rising] on pin CK
+    The end   point is clocked by            pll_60MHz|CLKOP_inferred_clock [rising] on pin CK
+
+Instance / Net                                                                                             Pin      Pin               Arrival     No. of    
+Name                                                                                          Type         Name     Dir     Delay     Time        Fan Out(s)
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_ctlparam[7]                     FD1P3AX      Q        Out     1.220     1.220       -         
+usbc_dscinx[7]                                                                                Net          -        -       -         -           8         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.un76_t_fin_0_o2_0                 ORCALUT4     A        In      0.000     1.220       -         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.un76_t_fin_0_o2_0                 ORCALUT4     Z        Out     1.153     2.373       -         
+N_103                                                                                         Net          -        -       -         -           3         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.un76_t_fin_0_o2                   ORCALUT4     A        In      0.000     2.373       -         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.un76_t_fin_0_o2                   ORCALUT4     Z        Out     1.153     3.525       -         
+N_106                                                                                         Net          -        -       -         -           3         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.un76_t_fin_0_o2_RNIE5MV           ORCALUT4     A        In      0.000     3.525       -         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.un76_t_fin_0_o2_RNIE5MV           ORCALUT4     Z        Out     1.193     4.718       -         
+N_108                                                                                         Net          -        -       -         -           4         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_desctyp_RNIE3GV1[0]             ORCALUT4     A        In      0.000     4.718       -         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_desctyp_RNIE3GV1[0]             ORCALUT4     Z        Out     1.193     5.911       -         
+N_112                                                                                         Net          -        -       -         -           4         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.un19_s_answerptr_0_I_8_0_a2_1     ORCALUT4     A        In      0.000     5.911       -         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.un19_s_answerptr_0_I_8_0_a2_1     ORCALUT4     Z        Out     1.017     6.928       -         
+N_209                                                                                         Net          -        -       -         -           1         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.un19_s_answerptr_0_I_1_0          CCU2D        D1       In      0.000     6.928       -         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.un19_s_answerptr_0_I_1_0          CCU2D        COUT     Out     1.545     8.472       -         
+un19_s_answerptr_0_data_tmp[0]                                                                Net          -        -       -         -           1         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.un19_s_answerptr_0_I_9_0          CCU2D        CIN      In      0.000     8.472       -         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.un19_s_answerptr_0_I_9_0          CCU2D        COUT     Out     0.143     8.615       -         
+un19_s_answerptr_0_data_tmp[2]                                                                Net          -        -       -         -           1         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.un19_s_answerptr_0_I_21_0         CCU2D        CIN      In      0.000     8.615       -         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.un19_s_answerptr_0_I_21_0         CCU2D        S1       Out     1.685     10.300      -         
+un19_s_answerptr_0_data_tmp[3]                                                                Net          -        -       -         -           3         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_answerptr_1_sqmuxa_1_2          ORCALUT4     A        In      0.000     10.300      -         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_answerptr_1_sqmuxa_1_2          ORCALUT4     Z        Out     1.017     11.317      -         
+s_answerptr_1_sqmuxa_1_2                                                                      Net          -        -       -         -           1         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_state_ns_3_0_.m13_0_84          ORCALUT4     B        In      0.000     11.317      -         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_state_ns_3_0_.m13_0_84          ORCALUT4     Z        Out     1.089     12.406      -         
+m13_0_84                                                                                      Net          -        -       -         -           2         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_state_ns_3_0_.m42_am            ORCALUT4     A        In      0.000     12.406      -         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_state_ns_3_0_.m42_am            ORCALUT4     Z        Out     1.017     13.422      -         
+m42_am                                                                                        Net          -        -       -         -           1         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_state_ns_3_0_.m42               PFUMX        BLUT     In      0.000     13.422      -         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_state_ns_3_0_.m42               PFUMX        Z        Out     0.214     13.637      -         
+N_43                                                                                          Net          -        -       -         -           1         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_state_ns_3_0_.m43               ORCALUT4     C        In      0.000     13.637      -         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_state_ns_3_0_.m43               ORCALUT4     Z        Out     1.017     14.653      -         
+N_44                                                                                          Net          -        -       -         -           1         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_state_ns_3_0_.N_54_i            ORCALUT4     C        In      0.000     14.653      -         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_state_ns_3_0_.N_54_i            ORCALUT4     Z        Out     0.617     15.270      -         
+N_54_i                                                                                        Net          -        -       -         -           1         
+usb_2_spi_unit.usb_fs_slave_1.usb_serial_1.usb_control_inst.s_state[1]                        FD1S3IX      D        In      0.000     15.270      -         
+============================================================================================================================================================
+
+
+
+
+====================================
+Detailed Report for Clock: System
+====================================
+
+
+
+Starting Points with Worst Slack
+********************************
+
+               Starting                                   Arrival             
+Instance       Reference     Type     Pin     Net         Time        Slack   
+               Clock                                                          
+------------------------------------------------------------------------------
+onchip_osc     System        OSCH     OSC     osc_clk     0.000       1000.000
+==============================================================================
+
+
+Ending Points with Worst Slack
+******************************
+
+                       Starting                                       Required             
+Instance               Reference     Type        Pin      Net         Time         Slack   
+                       Clock                                                               
+-------------------------------------------------------------------------------------------
+pll_unit.PLLInst_0     System        EHXPLLJ     CLKI     osc_clk     1000.000     1000.000
+===========================================================================================
+
+
+
+Worst Path Information
+***********************
+
+
+Path information for path number 1: 
+      Requested Period:                      1000.000
+    - Setup time:                            0.000
+    + Clock delay at ending point:           0.000 (ideal)
+    + Estimated clock delay at ending point: 0.000
+    = Required time:                         1000.000
+
+    - Propagation time:                      0.000
+    - Clock delay at starting point:         0.000 (ideal)
+    - Estimated clock delay at start point:  -0.000
+    = Slack (non-critical) :                 1000.000
+
+    Number of logic level(s):                0
+    Starting point:                          onchip_osc / OSC
+    Ending point:                            pll_unit.PLLInst_0 / CLKI
+    The start point is clocked by            System [rising]
+    The end   point is clocked by            System [rising]
+
+Instance / Net                     Pin      Pin               Arrival     No. of    
+Name                   Type        Name     Dir     Delay     Time        Fan Out(s)
+------------------------------------------------------------------------------------
+onchip_osc             OSCH        OSC      Out     0.000     0.000       -         
+osc_clk                Net         -        -       -         -           1         
+pll_unit.PLLInst_0     EHXPLLJ     CLKI     In      0.000     0.000       -         
+====================================================================================
+
+
+
+##### END OF TIMING REPORT #####]
+
+Timing exceptions that could not be applied
+None
+
+Finished final timing analysis (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:06s; Memory used current: 193MB peak: 199MB)
+
+
+Finished timing report (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:06s; Memory used current: 193MB peak: 199MB)
+
+---------------------------------------
+Resource Usage Report
+Part: lcmxo3lf_6900c-6
+
+Register bits: 445 of 54912 (1%)
+PIC Latch:       0
+I/O cells:       9
+Block Rams : 2 of 240 (0%)
+
+
+Details:
+BB:             2
+CCU2D:          103
+FD1P3AX:        145
+FD1P3BX:        4
+FD1P3DX:        42
+FD1P3IX:        32
+FD1P3JX:        5
+FD1S3AX:        71
+FD1S3AY:        2
+FD1S3BX:        7
+FD1S3DX:        34
+FD1S3IX:        86
+FD1S3JX:        13
+GSR:            1
+IB:             2
+IFS1P3DX:       1
+IFS1P3IX:       1
+INV:            15
+L6MUX21:        1
+OB:             4
+OBZ:            1
+OFS1P3DX:       2
+ORCALUT4:       879
+OSCH:           1
+PDPW8KC:        2
+PFUMX:          12
+PUR:            1
+ROM128X1A:      8
+VHI:            11
+VLO:            12
+false:          1
+true:           2
+Mapper successful!
+
+At Mapper Exit (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:07s; Memory used current: 37MB peak: 199MB)
+
+Process took 0h:00m:07s realtime, 0h:00m:07s cputime
+# Fri Mar 09 13:44:23 2018
+
+###########################################################]

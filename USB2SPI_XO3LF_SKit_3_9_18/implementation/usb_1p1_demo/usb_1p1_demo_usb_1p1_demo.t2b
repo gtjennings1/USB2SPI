@@ -1,0 +1,5 @@
+
+
+-g RamCfg:Reset
+
+-path "C:/projects_2018/USB2SPI/trunk/USB2SPI_XO3LF_SKit_3_9_18/implementation"  

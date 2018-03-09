@@ -1,0 +1,52 @@
+<Project ModBy="Inserter" Name="D:/DEMO_DESIGN/USB_1P1_DEMO/debug/usb_1p1_debug.rvl" Date="2013-11-29">
+    <Core Name="usb_2upper_LA0">
+        <Setting>
+            <Capture SamplesPerTrig="512" NumTrigsCap="1"/>
+            <Event EventCnt="0" CntEnableRun="0"/>
+            <TrigSetting PreTrgSamples="" AND_ALL="0" PostTrgSamples="" TURadix="0"/>
+        </Setting>
+        <Dataset Name="Base">
+            <Trace>
+                <Bus Name="usb_fs_slave_1/usb_serial_1/descrom_rdat" Radix="0">
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:0"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:1"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:2"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:3"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:4"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:5"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:6"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_rdat:7"/>
+                </Bus>
+                <Bus Name="usb_fs_slave_1/usb_serial_1/descrom_raddr" Radix="0">
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:0"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:1"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:2"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:3"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:4"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:5"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:6"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:7"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:8"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_raddr:9"/>
+                </Bus>
+                <Bus Name="usb_fs_slave_1/usb_serial_1/descrom_start" Radix="0">
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_start:0"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_start:1"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_start:2"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_start:3"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_start:4"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_start:5"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_start:6"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_start:7"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_start:8"/>
+                    <Sig Name="usb_fs_slave_1/usb_serial_1/descrom_start:9"/>
+                </Bus>
+                <Sig Name="usb_fs_slave_1/usb_serial_1/usbc_dscrd"/>
+            </Trace>
+            <Trigger>
+                <TU Operator="6" Name="TU1" ID="1" Value="1" Radix="0"/>
+                <TE Enable="1" Expression="TU1" Name="TE1" ID="1"/>
+            </Trigger>
+        </Dataset>
+    </Core>
+</Project>

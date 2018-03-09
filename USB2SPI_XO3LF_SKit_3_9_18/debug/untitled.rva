@@ -1,0 +1,45 @@
+<!DOCTYPE ispTLA>
+<ispTLA>
+ <CreationDate>Wed 27. Nov 19:05:45 2013</CreationDate>
+ <XCFFileName/>
+ <CableSetting>
+  <IsTRSTConnected val="false"/>
+  <TRSTSetting val="0"/>
+  <IsBSCANConnected val="false"/>
+  <BSCANSetting val="0"/>
+  <CableType val="USB2"/>
+  <PortAddress val="0"/>
+  <PortSetting val="0"/>
+  <TCKDelay val="1"/>
+ </CableSetting>
+ <DeviceCount>1</DeviceCount>
+ <Device>
+  <DeviceIndex>0</DeviceIndex>
+  <DeviceName>LCMXO2-7000ZE</DeviceName>
+  <DeviceID>19615811</DeviceID>
+  <HasIspTRACY>true</HasIspTRACY>
+  <HasJTAG2WB>false</HasJTAG2WB>
+  <SERDES/>
+  <IRBypassLen>8</IRBypassLen>
+  <RVLFileName>usb_1p1_debug.rvl</RVLFileName>
+  <RVSFileName>usb_1p1_debug.rvs</RVSFileName>
+  <LACoreCount>1</LACoreCount>
+  <WinUI CoreIndex="0">
+   <TraceSigTreeData>
+    <TraceSignal IsHidden="false" Name="rst_neg_ext" NodeType="0" PortIndex="0"/>
+    <TraceSignal IsHidden="false" Name="usb_fs_slave_1/usb_serial_1/usbc_dsctyp" NodeType="1" PortIndex="1">
+     <BusRadix Radix="0"/>
+     <IsExpanded Expand="false"/>
+    </TraceSignal>
+    <TraceSignal IsHidden="false" Name="usb_fs_slave_1/usb_serial_1/usbc_dsctyp:0" NodeType="2" PortIndex="1"/>
+    <TraceSignal IsHidden="false" Name="usb_fs_slave_1/usb_serial_1/usbc_dsctyp:1" NodeType="2" PortIndex="2"/>
+    <TraceSignal IsHidden="false" Name="usb_fs_slave_1/usb_serial_1/usbc_dsctyp:2" NodeType="2" PortIndex="3"/>
+   </TraceSigTreeData>
+   <TriggerUI UserSelect="0" PreSelectType="0" PreSelect="1" UserSelectPos="0"/>
+   <CoreRun Run="true"/>
+   <CoreWndUIData>
+    <ClockFrequency Unit="ns" Frequency="-1.0"/>
+   </CoreWndUIData>
+  </WinUI>
+ </Device>
+</ispTLA>
