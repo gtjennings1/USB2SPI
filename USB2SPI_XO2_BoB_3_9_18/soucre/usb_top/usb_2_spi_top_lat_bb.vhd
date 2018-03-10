@@ -46,7 +46,9 @@ entity usb_2_spi_top_lat_bb is
 		miso      : in    std_logic;    --master in, slave out
 		sclk      : out   std_logic;    --spi clock
 		ss_n      : out   std_logic;    --slave select
-		mosi      : out   std_logic     --master out, slave in				
+		mosi      : out   std_logic;     --master out, slave in	
+		ss_in     : in    std_logic;
+		vcc       : out   std_logic			
 	);
 end entity usb_2_spi_top_lat_bb;
 
@@ -104,10 +106,12 @@ begin
 			sclk       => sclk,
 			miso       => miso,
 			mosi       => mosi,
-			ss_n       => ss_n
+			ss_n       => open
 		);
 		
 	FPGA_ready <= not pll_lock;
 	LED_green <= not usb_online;
+	ss_n <= ss_in;
+	vcc  <= '1';
 	
 end architecture RTL;
