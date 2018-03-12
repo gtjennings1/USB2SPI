@@ -40,14 +40,19 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
+library work;
+use work.usb_desc_pkg.all;
+
 entity usb_2_spi is
 	generic(
 		-- Selftest mode
 		-- 0 - Normal operation
 		-- 1 - USB loopback
 		-- 2 - SPI loopback
-		-- 3 - Runtime
-		SELFTEST : integer range 0 to 3 := 0
+		-- 3 - Runtime 
+		SELFTEST : integer range 0 to 3 := 0;
+		-- USB descriptor
+		USB_DESCRIPTOR : usb_desc
 	);
 	port(
 		-- Reference clock, 60 MHz
@@ -106,16 +111,12 @@ begin
 
 	usb_fs_slave_1 : entity work.usb_fs_port
 		generic map(
-			VENDORID     => X"FB9A",
-			PRODUCTID    => X"FB9A",
-			-- VENDORID        => X"045E",
-			-- PRODUCTID       => X"001C",
-			-- VENDORID        => X"0925",
-			-- PRODUCTID       => X"1234",
-			-- VENDORID        => X"04D8",
-			-- PRODUCTID       => X"0042",
-			VERSIONBCD   => X"0020",
-			--SELFPOWERED     => FALSE,
+			VENDORID     => USB_DESCRIPTOR.VENDORID,
+			PRODUCTID    => USB_DESCRIPTOR.PRODUCTID,
+			VERSIONBCD   => USB_DESCRIPTOR.VERSIONBCD,
+			VENDORSTR 	 => USB_DESCRIPTOR.VENDORSTR,
+			PRODUCTSTR   => USB_DESCRIPTOR.PRODUCTSTR,
+			SERIALSTR    => USB_DESCRIPTOR.SERIALSTR,
 			SELFPOWERED  => TRUE,
 			BUFSIZE_BITS => BUFSIZE_BITS)
 		port map(

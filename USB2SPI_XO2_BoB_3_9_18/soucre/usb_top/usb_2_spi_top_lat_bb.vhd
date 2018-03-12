@@ -24,8 +24,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
---library machxo2;
---use machxo2.components.all;
+library work;
+use work.usb_desc_pkg.all;
 
 entity usb_2_spi_top_lat_bb is
 	port (
@@ -93,7 +93,8 @@ begin
 	
 	usb_2_spi_unit: entity work.usb_2_spi
 		generic map(
-			SELFTEST => 0
+			SELFTEST => 0,
+			USB_DESCRIPTOR => GENERAL_VCP_DESC
 		)
 		port map(
 			clk        => pll_clk,
