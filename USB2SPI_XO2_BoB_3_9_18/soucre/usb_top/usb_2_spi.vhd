@@ -152,7 +152,7 @@ begin
 			enable  => spi_tx_valid,    --initiate transaction
 			cpol    => '0',             --spi clock polarity
 			cpha    => '0',             --spi clock phase
-			cont    => '0',             --continuous mode command
+			cont    => spi_tx_valid,             --continuous mode command
 			clk_div => 0,               --30,              --system clock cycles per 1/2 period of sclk
 			addr    => 0,               --address of slave
 			tx_data => spi_tx_data,     --data to transmit
