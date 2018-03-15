@@ -87,13 +87,14 @@ entity usb_2_spi is
 end usb_2_spi;
 
 architecture rtl of usb_2_spi is
-	constant BUFSIZE_BITS : integer := 8;
+	constant BUFSIZE_BITS : integer := 9;
 	signal usb_rx_data    : std_logic_vector(7 downto 0);
 	signal usb_rx_ready   : std_logic;
 	signal usb_rx_valid   : std_logic;
+	signal usb_rx_len     : std_logic_vector(BUFSIZE_BITS - 1 downto 0);
 	signal usb_tx_cork    : std_logic;
 	signal usb_tx_data    : std_logic_vector(7 downto 0);
-	signal usb_tx_room    : std_logic_vector(7 downto 0);
+	signal usb_tx_room    : std_logic_vector(BUFSIZE_BITS - 1 downto 0);
 	signal spi_tx_data    : std_logic_vector(7 downto 0);
 	signal spi_rx_data    : std_logic_vector(7 downto 0);
 	signal usb_tx_ready   : std_logic;
@@ -131,7 +132,7 @@ begin
 			RXval       => usb_rx_valid, -- o  High if a received byte available on RXDAT.
 			RXdat       => usb_rx_data, -- o  Received data byte, valid if RXVAL is high.
 			RXrdy       => usb_rx_ready, -- i  High if application is ready to receive.
-			RXlen       => open,        -- o  No of bytes available in receive buffer.
+			RXlen       => usb_rx_len,        -- o  No of bytes available in receive buffer.
 			TXval       => usb_tx_valid, -- i  High if the application has data to send.
 			TXdat       => usb_tx_data, -- i  Data byte to send, must be valid if TXVAL is high.
 			TXrdy       => usb_tx_ready, -- o  High if the entity is ready to accept the next byte.
