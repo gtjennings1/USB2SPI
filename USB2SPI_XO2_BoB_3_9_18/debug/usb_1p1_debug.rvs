@@ -1,4 +1,4 @@
-<Project ModBy="Analyzer" Name="C:/work/upwork/projects/USB2SPI/USB2SPI_XO2_BoB_3_9_18/debug/usb_1p1_debug.rvs" Date="2018-03-15">
+<Project ModBy="Analyzer" Name="C:/work/upwork/projects/USB2SPI/USB2SPI_XO2_BoB_3_9_18/debug/usb_1p1_debug.rvs" Date="2018-03-19">
  <Core Name="usb_2upper_LA0">
   <Setting>
    <Capture SamplesPerTrig="1024" NumTrigsCap="1"/>

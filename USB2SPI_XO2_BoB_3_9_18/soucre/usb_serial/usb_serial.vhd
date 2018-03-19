@@ -207,7 +207,7 @@ architecture usb_serial_arch of usb_serial is
     end function;
 
     -- Maximum packet size according to protocol.
-    constant MAX_FSPACKET_SIZE: integer := 64;
+    constant MAX_FSPACKET_SIZE: integer := 128;
     constant MAX_HSPACKET_SIZE: integer := 512;
 
     -- Width required for a pointer that can cover either RX or TX buffer.
