@@ -28,7 +28,23 @@ class Flash:
     JEDEC_ID = 0x9F
     READ_DATA = 0x03
     READ_DATA_FAST = 0x0B
+    
+    BLOCK_SIZE_WR = 64
+    BLOCK_SIZE_RD = 64
 
+    Manufacturer_IDs = {
+        0x20: "Micron",
+        0xEF: "Winbond"
+    }
+
+    Capacity_IDs = {
+    0x14: '8M',
+    0x15: '16M',
+    0x16: '32M',
+    0x17: '64M',
+    0x18: '128M',
+    0x19: '256M'
+    }
 
     def __init__(self):
         self.port = None
@@ -37,8 +53,10 @@ class Flash:
 
     def _write(self, data, dummies):
         for x in range(0, dummies):
-            data.append(0xA)
+            data.append(0x0)
         written = self.port.write(bytes(data))
+        self.port.flush()
+        #time.sleep(0.05)
         rd = self.port.read(written)  
 
         if self.debug:
@@ -85,17 +103,32 @@ class Flash:
         return rd[5:]
 
     def _page_program(self, address, data):
-        wr_data = [self.PAGE_PROG]
-        wr_data.extend(self._address2bytes(address))
-        wr_data.extend(data)
-        self._write(wr_data, 0)
+        size = len(data)
+        start = 0
+        while size > 0:
+            self._write_enable()
+            max_size = (address | 0xFF) - address + 1
+            real_size = min(max_size, size)
+            real_size = min(self.BLOCK_SIZE_WR - 4, real_size)
+            wr_data = [self.PAGE_PROG]
+            wr_data.extend(self._address2bytes(address))
+            wr_data.extend(data[start:start + real_size])
+            self._write(wr_data, 0)
+            #print('page programm: 0x{:06x} - 0x{:06x} - {}'.format(address, address + real_size - 1, real_size))
+            #print(data[start:start + real_size])
+            address += real_size
+            start += real_size
+            size -= real_size
+            while self._isbusy():
+                time.sleep(0.01)
+            
 
     def _sector_erase(self, address):
         data = [self.SECTOR_ERASE_4K]
         data.extend(self._address2bytes(address))
         self._write(data, 0)
 
-    def _block_erase(self, address, block64K=False):
+    def _block_erase(self, address, block64K=True):
         if block64K:
             data = [self.BLOCK_ERASE_64K]
         else:
@@ -152,25 +185,36 @@ class Flash:
     def _isbusy(self):
         sts = self._get_status()
         return True if (sts[0] & 1) > 0 else False
+        
+    def _ascii2hex(self, hex_data):
+        hex_array = hex_data.split(' ')
+        bin_data = []
+        for hex in hex_array:
+            try:
+                bin_data.append(int(hex, 16))
+            except ValueError:
+                pass
+        return bin_data
 
 
     def open(self, port):
         self.port = serial.Serial(port, write_timeout=0, timeout=60)
         print(self.port.port)
+        self._write_enable()
+        
 
     def get_device_info(self):
-        dev_id = self._read_id()
+        dev_id = self._read_jedec_id()
         info = {}
-        info['Manufacturer ID'] = ['Winbond Serial Flash' if dev_id[0] == 0xEF else 'Unknown', dev_id[0]]
-        if dev_id[1] == 0x13:
-            dev_id_str = 'W25Q80'
-        elif dev_id[1] == 0x14:
-            dev_id_str = 'W25Q16'
-        elif dev_id[1] == 0x15:
-            dev_id_str = 'W25Q32'
+        if dev_id[0] in self.Manufacturer_IDs:
+            info['Manufacturer ID'] = [self.Manufacturer_IDs[dev_id[0]], dev_id[0]]
         else:
-            dev_id_str = 'Unknown'
-        info['Device ID'] =  [dev_id_str, dev_id[1]]
+            info['Manufacturer ID'] = ['Unknown', dev_id[0]]
+        info['Memory Type'] = [dev_id[1], dev_id[1]]
+        if dev_id[2] in self.Capacity_IDs:
+            info['Capacity'] = [self.Capacity_IDs[dev_id[2]], dev_id[2]]
+        else:
+            info['Capacity'] = ['Unknown', dev_id[2]]
         return info
 
     def get_device_status(self):
@@ -186,11 +230,15 @@ class Flash:
             'Quad Enable' : (sts[1] >> 1) & 1
         }
         return status
+        
+    def get_chip_size(self):
+        id = self._read_jedec_id()
+        return pow(2, (id[2] + 3))
 
     def erase_chip(self):
         print('Chip erasing...')
-        self._write_enable
-        self._chip_erase
+        self._write_enable()
+        self._chip_erase()
         bar = ProgressBar(max_value=80).start()
         i = 0
         while self._isbusy():
@@ -200,27 +248,60 @@ class Flash:
             bar.update(i)
         bar.finish()
         print('Chip erased.')
+        
+    def erase_chip_partial(self, start_addr, bsize, bcount):
+        print('Partial chip erasing...')
+        bar = ProgressBar(max_value=bcount).start()
+        i = 0
+        while bcount > 0:
+            self._write_enable()
+            if bsize == 4*1024:
+                self._sector_erase(start_addr)
+            else:
+                self._block_erase(start_addr)
+            bar.update(i)
+            i = i + 1
+            bcount = bcount - 1
+            start_addr = start_addr + bsize
+            while self._isbusy():
+                time.sleep(0.05)
+        bar.finish()
+        print('Chip erased')
 
 
     def write_hex(self, address, hexfile):
-        with open(hexfile, mode='rb') as hex:
+        written = 0
+        with open(hexfile, mode='rt') as hex:
             size = os.path.getsize(hexfile)
             print('Writing {} to 0x{:06x}'.format(hexfile, address))
             bar = ProgressBar(max_value=size).start()
             i = 0
+            hex_data = ''
             while True:
-                data = hex.read(32)
-                if len(data) > 0:
+                hex_data = ''
+                while len(hex_data) < 3*self.BLOCK_SIZE_WR:
+                    hx = hex.readline()
+                    hx = hx[:-1]
+                    if len(hx) > 0:
+                        hx += ' '
+                    if len(hx) == 0:
+                        break
+                    else:
+                        hex_data += hx
+                if len(hex_data) > 0:
                     self._write_enable()
-                    self._page_program(address, data)
-                    address = address + len(data)
+                    bin_data = self._ascii2hex(hex_data)
+                    self._page_program(address, bin_data)
+                    address = address + len(bin_data)
+                    written = written + len(bin_data)
                     # while self._isbusy():
                     #      time.sleep(1)
-                    i = i + len(data)
+                    i = i + len(hex_data)
                     bar.update(i)
                 else:
                     break
             print('Writing finished.')
+            return written
 
     def read_hex(self, address, hexfile, size):
         if size is None:
@@ -233,7 +314,7 @@ class Flash:
             bar = ProgressBar(max_value=size).start()
             i = 0
             while size > 0:
-                rd = self._read_data(address, 32)
+                rd = self._read_data(address, self.BLOCK_SIZE_RD - 4)
                 hh.write(bytes(rd))
                 size = size - len(rd)
                 address = address + len(rd)
@@ -242,9 +323,74 @@ class Flash:
                 time.sleep(0.01)
             bar.finish()
             print('Reading finished')
-
-    def verify_hex(self, address, hexfile):
-        pass
+            
+    def write_int(self, address, value):
+        data[0] = value & 0xFF
+        data[1] = (value >> 8) & 0xFF
+        data[2] = (value >> 16) & 0xFF
+        data[3] = (value >> 24) & 0xFF
+        self._write_enable()
+        self._page_program(address, data)
+        
+            
+            
+    def read(self, address, size):
+        bar = ProgressBar(max_value=size).start()
+        i = 0
+        hh = []
+        while size > 0:
+            rds = min(self.BLOCK_SIZE_RD-4, size)
+            rd = self._read_data(address, rds)
+            hh.extend(bytes(rd))
+            size = size - len(rd)
+            address = address + len(rd)
+            bar.update(i)
+            i = i + len(rd)
+            time.sleep(0.01)
+        bar.finish()
+        return hh
+        
+       
+    def verify_hex(self, address, hexfile, binfile):
+        with open(hexfile, mode='rt') as hex:
+            size = os.path.getsize(hexfile)
+            bar = ProgressBar(max_value=size).start()
+            err_addr = None
+            with open(binfile, mode = 'rb') as bin:
+                i = 0
+                hex_data = ''
+                while True:
+                    hex_data = ''
+                    while len(hex_data) < 3*self.BLOCK_SIZE_WR:
+                        hx = hex.readline()
+                        hx = hx[:-1]
+                        if len(hx) > 0:
+                            hx += ' '
+                        if len(hx) == 0:
+                            break
+                        else:
+                            hex_data += (hx)
+                    if len(hex_data) > 0:
+                        bin_data = self._ascii2hex(hex_data)
+                        rd_data = bin.read(len(bin_data))
+                        for index, bv in enumerate(bin_data):
+                            if bv != rd_data[index]:
+                                err_addr = address + index
+                                expected_value = bv
+                                value = rd_data[index]
+                                break
+                        address = address + len(bin_data)
+                        i = i + len(hex_data)
+                        bar.update(i)
+                    else:
+                        break
+            if err_addr is not None:
+                print('Verification failed: at address 0x{:06x} expected value 0x{:02x} got 0x{:02x}'.format(err_addr, expected_value, value))
+            else:
+                print('Verification completed successfully.')
+        
 
     def close(self):
+        self._write_disable()
+        self.port.flush()
         self.port.close()
