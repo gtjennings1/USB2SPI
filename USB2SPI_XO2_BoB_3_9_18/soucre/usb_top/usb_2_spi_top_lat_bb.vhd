@@ -41,14 +41,15 @@ entity usb_2_spi_top_lat_bb is
 		FPGA_ready    : out   std_logic;
 		-- USB core status
 		LED_green : out   std_logic;
-		-- SPI transmit event
-		spi_tx_event : out std_logic;
 		
 		-- SPI 
 		miso      : in    std_logic;    --master in, slave out
 		sclk      : out   std_logic;    --spi clock
 		ss_n      : out   std_logic;    --slave select
-		mosi      : out   std_logic     --master out, slave in			
+		mosi      : out   std_logic;     --master out, slave in	
+		--ss_in     : in    std_logic;
+		vcc       : out   std_logic;
+		cresetn   : out   std_logic			
 	);
 end entity usb_2_spi_top_lat_bb;
 
@@ -58,7 +59,6 @@ architecture RTL of usb_2_spi_top_lat_bb is
 	signal pll_lock : std_logic;
 	signal pll_reset : std_logic;
 	signal usb_online : std_logic;
-	signal spi_ss_n : std_logic;
 	
 	COMPONENT OSCH
 	
@@ -94,7 +94,7 @@ begin
 	
 	usb_2_spi_unit: entity work.usb_2_spi
 		generic map(
-			SELFTEST => 1,
+			SELFTEST => 0,
 			USB_DESCRIPTOR => GENERAL_VCP_DESC
 		)
 		port map(
@@ -108,11 +108,13 @@ begin
 			sclk       => sclk,
 			miso       => miso,
 			mosi       => mosi,
-			ss_n       => spi_ss_n
+			ss_n       => ss_n
 		);
 		
 	FPGA_ready <= not pll_lock;
 	LED_green <= not usb_online;
-	spi_tx_event  <= not spi_ss_n;
+	--ss_n <= ss_in;
+	vcc  <= '1';
+	cresetn  <= '0';
 	
 end architecture RTL;

@@ -1,7 +1,0 @@
-C:\lscc\diamond\3.9_x64\synpbase\bin64\syn_nfilter.exe  -link  -top  usb_2_spi_top_lat_bb  -multisrs  C:\projects_2018\USB2SPI\trunk\USB2SPI_XO3LF_SKit_3_9_18\implementation\usb_1p1_demo\synwork\usb_1p1_demo_usb_1p1_demo_comp.srs  -osyn  C:\projects_2018\USB2SPI\trunk\USB2SPI_XO3LF_SKit_3_9_18\implementation\usb_1p1_demo\synwork\usb_1p1_demo_usb_1p1_demo_mult.srs  -log  C:\projects_2018\USB2SPI\trunk\USB2SPI_XO3LF_SKit_3_9_18\implementation\usb_1p1_demo\synlog\usb_1p1_demo_usb_1p1_demo_multi_srs_gen.srr 
-rc:0 success:1 runtime:0
-file:C:\projects_2018\USB2SPI\trunk\USB2SPI_XO3LF_SKit_3_9_18\implementation\usb_1p1_demo\synwork\usb_1p1_demo_usb_1p1_demo_comp.srs|io:i|time:1520624653|size:75251|exec:0
-file:C:\projects_2018\USB2SPI\trunk\USB2SPI_XO3LF_SKit_3_9_18\implementation\usb_1p1_demo\synwork\usb_1p1_demo_usb_1p1_demo_mult.srs|io:o|time:1520624654|size:4293|exec:0
-file:C:\projects_2018\USB2SPI\trunk\USB2SPI_XO3LF_SKit_3_9_18\implementation\usb_1p1_demo\synlog\usb_1p1_demo_usb_1p1_demo_multi_srs_gen.srr|io:o|time:1520624654|size:565|exec:0
-file:C:\lscc\diamond\3.9_x64\synpbase\bin\syn_nfilter.exe|io:i|time:1481009796|size:3128320|exec:1
-file:C:\lscc\diamond\3.9_x64\synpbase\bin64\syn_nfilter.exe|io:i|time:1481010064|size:3947520|exec:1
