@@ -104,17 +104,16 @@ begin
 			usb_dn     => usb_dn,
 			usb_ready  => open,
 			usb_online => usb_online,
-			loopback   => (others => '0'),
 			sclk       => sclk,
 			miso       => miso,
 			mosi       => mosi,
-			ss_n       => ss_n
+			ss_n       => ss_n,
+			creset     => cresetn
 		);
 		
 	FPGA_ready <= not pll_lock;
 	LED_green <= not usb_online;
 	--ss_n <= ss_in;
 	vcc  <= '1';
-	cresetn  <= '0';
 	
 end architecture RTL;

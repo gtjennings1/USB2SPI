@@ -48,9 +48,8 @@ entity usb_2_spi is
 		-- Selftest mode
 		-- 0 - Normal operation
 		-- 1 - USB loopback
-		-- 2 - SPI loopback
-		-- 3 - Runtime 
-		SELFTEST : integer range 0 to 3 := 0;
+		-- 2 - SPI loopback 
+		SELFTEST : integer range 0 to 2 := 0;
 		-- USB descriptor
 		USB_DESCRIPTOR : usb_desc
 	);
@@ -67,12 +66,6 @@ entity usb_2_spi is
 		usb_ready   : out   std_logic;
 		usb_online  : out   std_logic;
 
-		-- Runtime loopback mode
-		-- 0b01 - USB loopback
-		-- 0b10 - SPI loopback
-		-- others - normal operation
-		loopback    : in    std_logic_vector(1 downto 0);
-
 		-- SPI clock
 		sclk        : out   std_logic;
 		-- SPI master in, slave out
@@ -80,7 +73,9 @@ entity usb_2_spi is
 		-- SPI master out, slave in
 		mosi        : out   std_logic;
 		-- SPI slave select
-		ss_n        : out   std_logic
+		ss_n        : out   std_logic;
+		
+		creset      : out std_logic
 	);
 	
 	
@@ -98,13 +93,20 @@ architecture rtl of usb_2_spi is
 	signal spi_rx_data    : std_logic_vector(7 downto 0);
 	signal usb_tx_ready   : std_logic;
 	signal usb_tx_valid   : std_logic;
+	signal usb_reset      : std_logic;
 	signal spi_tx_valid   : std_logic;
+	signal spi_enable     : std_logic;
+	signal spi_cont       : std_logic;
 	signal spi_busy       : std_logic;
 	signal spi_mosi       : std_logic;
 	signal spi_miso       : std_logic;
 	signal spi_rx_valid   : std_logic;
 	signal spi_reset_n    : std_logic;
 	signal spi_ss_n       : std_logic_vector(0 downto 0);
+	signal spi_ctrl_rx_ready : std_logic;
+	signal spi_ctrl_tx_data : std_logic_vector(7 downto 0);
+	signal spi_ctrl_tx_valid : std_logic;
+	signal reset          : std_logic;
 	attribute keep : string;
 	attribute keep of usb_rx_valid : signal is "TRUE";
 begin
@@ -126,7 +128,7 @@ begin
 			d_pos       => usb_dp,      -- io Pos USB data line
 			d_neg       => usb_dn,      -- io Neg USB data line
 			d_oe        => open,
-			USB_rst     => open,        -- o  USB reset detected (SE0 > 2.5 us)
+			USB_rst     => usb_reset,        -- o  USB reset detected (SE0 > 2.5 us)
 			online      => usb_online,  -- o  High when the device is in Config state.
 			RXval       => usb_rx_valid, -- o  High if a received byte available on RXDAT.
 			RXdat       => usb_rx_data, -- o  Received data byte, valid if RXVAL is high.
@@ -142,6 +144,26 @@ begin
 
 	usb_tx_cork <= '0';                 -- Don't hold TX transmission
 
+	
+
+	spi_ctrl_unit: entity work.spi_ctrl
+		port map(
+			clk => clk,
+			reset => reset,
+			usb_rx_ready => spi_ctrl_rx_ready,
+			usb_rx_valid => usb_rx_valid,
+			usb_rx_data => usb_rx_data,
+			usb_tx_data => spi_ctrl_tx_data,
+			usb_tx_valid => spi_ctrl_tx_valid,
+			spi_resetn => spi_reset_n,
+			spi_busy => spi_busy,
+			spi_enable => spi_enable,
+			spi_cont => spi_cont,
+			spi_tx_data => spi_tx_data,
+			spi_rx_data => spi_rx_data,
+			creset => creset
+			);
+
 	spi_master_1 : entity work.spi_master
 		generic map(
 			slaves  => 1,               --number of spi slaves
@@ -149,10 +171,10 @@ begin
 		port map(
 			clock   => clk,             --system clock
 			reset_n => spi_reset_n,     --asynchronous reset
-			enable  => spi_tx_valid,    --initiate transaction
+			enable  => spi_enable,    --initiate transaction
 			cpol    => '0',             --spi clock polarity
 			cpha    => '0',             --spi clock phase
-			cont    => spi_tx_valid,             --continuous mode command
+			cont    => spi_cont,             --continuous mode command
 			clk_div => 0,               --30,              --system clock cycles per 1/2 period of sclk
 			addr    => 0,               --address of slave
 			tx_data => spi_tx_data,     --data to transmit
@@ -164,23 +186,16 @@ begin
 			rx_data => spi_rx_data      --data received
 		);
 
-	spi_tx_data  <= usb_rx_data;
-	spi_tx_valid <= usb_rx_valid;
 	mosi         <= spi_mosi;
 	ss_n         <= spi_ss_n(0);
 
-	spi_rx_valid_capturing : block
-		signal spi_busy_d : std_logic;
-	begin
-		spi_busy_d   <= spi_busy when rising_edge(clk);
-		spi_rx_valid <= '1' when spi_busy = '0' and spi_busy_d = '1' else '0';
-	end block spi_rx_valid_capturing;
+	
 
 	normal_mode : if SELFTEST = 0 generate
-		usb_rx_ready <= not spi_busy;
-		usb_tx_data  <= spi_rx_data;
-		usb_tx_valid <= spi_rx_valid;
-		spi_reset_n  <= resetn;
+		usb_rx_ready <= spi_ctrl_rx_ready;
+		usb_tx_data  <= spi_ctrl_tx_data;
+		usb_tx_valid <= spi_ctrl_tx_valid;
+		reset <= usb_reset and not resetn;
 		spi_miso     <= miso;
 	end generate normal_mode;
 
@@ -188,24 +203,16 @@ begin
 		usb_rx_ready <= usb_tx_ready;
 		usb_tx_data  <= usb_rx_data;
 		usb_tx_valid <= usb_rx_valid;
-		spi_reset_n  <= '0';
+		reset <= '1';
 		spi_miso     <= miso;
 	end generate usb_loopback;
 
 	spi_loopback : if SELFTEST = 2 generate
-		usb_rx_ready <= not spi_busy;
-		usb_tx_data  <= spi_rx_data;
-		usb_tx_valid <= spi_rx_valid;
-		spi_reset_n  <= resetn;
+		usb_rx_ready <= spi_ctrl_rx_ready;
+		usb_tx_data  <= spi_ctrl_tx_data;
+		usb_tx_valid <= spi_ctrl_tx_valid;
+		reset <= usb_reset and not resetn;
 		spi_miso     <= spi_mosi;
 	end generate spi_loopback;
-
-	runtime_loopback : if SELFTEST = 3 generate
-		usb_rx_ready <= usb_tx_ready when loopback = "01" else not spi_busy;
-		usb_tx_data  <= usb_rx_data when loopback = "01" else spi_rx_data;
-		usb_tx_valid <= usb_rx_valid when loopback = "01" else spi_rx_valid;
-		spi_reset_n  <= '0' when loopback = "01" else resetn;
-		spi_miso     <= spi_mosi when loopback = "10" else miso;
-	end generate runtime_loopback;
 
 end rtl;

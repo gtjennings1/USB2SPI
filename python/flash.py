@@ -51,17 +51,18 @@ class Flash:
         self.debug = False
         self.verbose = True
 
-    def _write(self, data, dummies):
+    def _write(self, data, dummies, read = False):
         for x in range(0, dummies):
             data.append(0x0)
         written = self.port.write(bytes(data))
         self.port.flush()
-        #time.sleep(0.05)
-        rd = self.port.read(written)  
+        if read:
+            rd = self.port.read(written)  
 
         if self.debug:
             print('write ({}/{}): {}'.format(written, len(data), data))
-            print('read ({}/{}): {}'.format(len(rd), written, rd))
+            if read:
+                print('read ({}/{}): {}'.format(len(rd), written, rd))
         return rd
 
     def _write_enable(self):
@@ -76,7 +77,7 @@ class Flash:
         data = [self.READ_SR_1]
         sr1 = self._write(data, 1)
         data = [self.READ_SR_2]
-        sr2 = self._write(data, 1)
+        sr2 = self._write(data, 1, True)
         return [sr1[1], sr2[1]]
 
     def _set_status(self, status):
@@ -93,13 +94,13 @@ class Flash:
     def _read_data(self, address, size):
         data = [self.READ_DATA]
         data.extend(self._address2bytes(address))
-        rd = self._write(data, size)
+        rd = self._write(data, size, True)
         return rd[4:]
 
     def _read_data_fast(self, address, size):
         data = [self.READ_DATA_FAST]
         data.extend(self._address2bytes(address))
-        rd = self._write(data, size + 1)
+        rd = self._write(data, size + 1, True)
         return rd[5:]
 
     def _page_program(self, address, data):
@@ -114,8 +115,6 @@ class Flash:
             wr_data.extend(self._address2bytes(address))
             wr_data.extend(data[start:start + real_size])
             self._write(wr_data, 0)
-            #print('page programm: 0x{:06x} - 0x{:06x} - {}'.format(address, address + real_size - 1, real_size))
-            #print(data[start:start + real_size])
             address += real_size
             start += real_size
             size -= real_size
@@ -158,7 +157,7 @@ class Flash:
 
     def _read_id(self):
         data = [self.DEVICE_ID]
-        rd = self._write(data, 5)
+        rd = self._write(data, 5, True)
         return rd[4:]
 
     def _get_chip_size(self):
@@ -174,12 +173,12 @@ class Flash:
 
     def _read_iniq_id(self):
         data = [self.READ_UNIQ_ID]
-        rd = self._write(data, 12)
+        rd = self._write(data, 12, True)
         return rd[5:]
 
     def _read_jedec_id(self):
         data = [self.JEDEC_ID]
-        rd = self._write(data, 3)
+        rd = self._write(data, 3, True)
         return rd[1:]
 
     def _isbusy(self):

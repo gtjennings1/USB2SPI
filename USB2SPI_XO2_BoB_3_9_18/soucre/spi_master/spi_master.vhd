@@ -72,8 +72,9 @@ ss_n <= ss_n_i;
 
     IF(reset_n = '0') THEN        --reset system
       busy <= '1';                --set busy signal
-      ss_n_i <= (OTHERS => '1');    --deassert all slave select lines
+      ss_n_i <= (OTHERS => 'Z');    --deassert all slave select lines
       mosi <= 'Z';                --set master out to high impedance
+      sclk_i <= 'Z';
       rx_data <= (OTHERS => '0'); --clear receive data port
       state <= ready;             --go to ready state when reset is exited
 
@@ -84,6 +85,7 @@ ss_n <= ss_n_i;
           busy <= '0';             --clock out not busy signal
           ss_n_i <= (OTHERS => '1'); --set all slave select outputs high
           mosi <= 'Z';             --set mosi output high impedance
+          sclk_i <= '0';
           continue <= '0';         --clear continue flag
 
           --user input to initiate transaction
