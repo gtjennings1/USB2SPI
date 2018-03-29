@@ -10,3 +10,6 @@ impl*/
 *.ccl
 *.srp
 *.pyc
+!*.jed
+!*.ldf
+!*.sty
