@@ -54,11 +54,22 @@ class Flash:
     def _write(self, data, dummies, read = False):
         for x in range(0, dummies):
             data.append(0x0)
-        written = self.port.write(bytes(data))
-        self.port.flush()
-        rd =[]
-        if read:
-            rd = self.port.read(written)  
+        size = len(data)
+        start = 0
+        while size > 0:
+            cur_size = min(64, size)
+            written = self.port.write(bytes(data[start:start+cur_size]))
+            start += written
+            size -= written
+            self.port.flush()
+            
+        rd = []
+        if read :
+            while size > 0:
+                cur_size = min(64, size)
+                rdc = self.port.read(cur_size)
+                rd.extend(rdc)
+                size -= len(rdc)
 
         if self.debug:
             print('write ({}/{}): {}'.format(written, len(data), data))
@@ -267,9 +278,25 @@ class Flash:
                 time.sleep(0.05)
         bar.finish()
         print('Chip erased')
+        
+    def _block_start_address(self, address, bsize):
+        if bsize == '4K':
+            return address & 0xFFFFF000
+        elif bsize == '64K':
+            return address & 0xFFFF0000
+        else:
+            return address
+           
+    def _block_end_address(self, address, bsize):
+        if bsize == '4K':
+            return address | 0xFFF
+        elif bsize == '64K':
+            return address | 0xFFFF
+        else:
+            return address
 
 
-    def write_hex(self, address, hexfile):
+    def write_hex(self, address, hexfile, erasing = None):
         written = 0
         with open(hexfile, mode='rt') as hex:
             size = os.path.getsize(hexfile)
