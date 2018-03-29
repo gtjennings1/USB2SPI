@@ -56,6 +56,7 @@ class Flash:
             data.append(0x0)
         written = self.port.write(bytes(data))
         self.port.flush()
+        rd =[]
         if read:
             rd = self.port.read(written)  
 
@@ -75,7 +76,7 @@ class Flash:
 
     def _get_status(self):
         data = [self.READ_SR_1]
-        sr1 = self._write(data, 1)
+        sr1 = self._write(data, 1, True)
         data = [self.READ_SR_2]
         sr2 = self._write(data, 1, True)
         return [sr1[1], sr2[1]]
@@ -387,9 +388,13 @@ class Flash:
                 print('Verification failed: at address 0x{:06x} expected value 0x{:02x} got 0x{:02x}'.format(err_addr, expected_value, value))
             else:
                 print('Verification completed successfully.')
+    
+    def release_rst(self):
+        self._write_disable()
+        self.port.flush()
+        time.sleep(1)
         
 
     def close(self):
-        self._write_disable()
-        self.port.flush()
+        self.release_rst()
         self.port.close()
