@@ -82,13 +82,13 @@ entity usb_2_spi is
 end usb_2_spi;
 
 architecture rtl of usb_2_spi is
-	constant BUFSIZE_BITS : integer := 8;
+	constant BUFSIZE_BITS : integer := 9;
 	signal usb_rx_data    : std_logic_vector(7 downto 0);
 	signal usb_rx_ready   : std_logic;
 	signal usb_rx_valid   : std_logic;
 	signal usb_tx_cork    : std_logic;
 	signal usb_tx_data    : std_logic_vector(7 downto 0);
-	signal usb_tx_room    : std_logic_vector(7 downto 0);
+	signal usb_tx_room    : std_logic_vector(BUFSIZE_BITS - 1 downto 0);
 	signal spi_tx_data    : std_logic_vector(7 downto 0);
 	signal spi_rx_data    : std_logic_vector(7 downto 0);
 	signal usb_tx_ready   : std_logic;
