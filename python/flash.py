@@ -55,15 +55,16 @@ class Flash:
         for x in range(0, dummies):
             data.append(x & 0xFF)
         size = len(data)
-        start = 0
-        while size > 0:
-            cur_size = min(64, size)
-            written = self.port.write(bytes(data[start:start+cur_size]))
-            start += written
-            size -= written
+        #start = 0
+        #while size > 0:
+           # cur_size = min(64, size)
+        written = self.port.write(bytes(data))
+            #start += written
+            #size -= written
             #self.port.flush()
             
         rd = []
+        size = written
         if read :
             while size > 0:
                 cur_size = min(64, size)
@@ -124,6 +125,7 @@ class Flash:
             real_size = min(max_size, size)
             real_size = min(self.BLOCK_SIZE_WR - 4, real_size)
             wr_data = [self.PAGE_PROG]
+            wr_data.append(real_size - 1)
             wr_data.extend(self._address2bytes(address))
             wr_data.extend(data[start:start + real_size])
             self._write(wr_data, 0)
