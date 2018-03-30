@@ -53,7 +53,7 @@ class Flash:
 
     def _write(self, data, dummies, read = False):
         for x in range(0, dummies):
-            data.append(0x0)
+            data.append(x & 0xFF)
         size = len(data)
         start = 0
         while size > 0:
@@ -61,7 +61,7 @@ class Flash:
             written = self.port.write(bytes(data[start:start+cur_size]))
             start += written
             size -= written
-            self.port.flush()
+            #self.port.flush()
             
         rd = []
         if read :
