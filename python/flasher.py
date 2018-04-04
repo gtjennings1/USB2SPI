@@ -8,6 +8,7 @@ parser.add_argument('-a', dest='address', default='0')
 parser.add_argument('-o', dest='output', default=None)
 parser.add_argument('-s', dest='size', default=None, type=int)
 parser.add_argument('-e', dest='full_erase', action='store_true')
+parser.add_argument('-b', dest='block_size', default='64')
 
 args = parser.parse_args()
 
@@ -25,10 +26,20 @@ if input is not None:
 
 address = int(args.address, 0)
 
+if args.block_size == '4':
+    bsize = 12
+elif args.block_size == '32':
+    bsize = 15
+elif args.block_size == '64':
+    bsize = 16
+else:
+    print('Block size value \'{}\' is wrong. Expected 4, 32 or 64'.format(args.block_size))
+    exit()
+
 from flash import Flash 
 
 flash = Flash()
-flash.debug = False
+flash.debug = True
 flash.open(port)
 
 chip_info = {}
@@ -40,9 +51,10 @@ if input is None:
     print('No input file. Skip write operation.')
 else:
     print('Write operation')
+    if args.full_erase:
+        flash.erase_chip()
     
-    flash.erase_chip()
-    written = flash.write_hex(address, input)
+    written = flash.write_hex(address, input, bsize, not args.full_erase)
     print('Written: {}'.format(written))
 
 output = args.output
