@@ -64,6 +64,7 @@ class Flash:
             self.port.flush()
             
         rd = []
+        size = written
         if read :
             while size > 0:
                 cur_size = min(64, size)
