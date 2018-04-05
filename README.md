@@ -1,4 +1,6 @@
 # USB2SPI
+pip3 install pyserial
+pip3 install progressbar2
 
 python flasher.py -p COM19 -i RGB_LED_BLINK.hex -o read.bin -b 4 > flasher.log
 
