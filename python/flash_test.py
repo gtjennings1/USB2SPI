@@ -16,18 +16,16 @@ if port == None:
 from flash import Flash 
 
 flash = Flash()
-flash.debug = args.debug
+flash.debug = True
 flash.open(port)
 
 try:
+    
     input('Waiting rvl ready')
     data = []
-    data.append(0x02)
-    data.append(0xFF)
-    data.append(0)
-    data.append(0)
-    data.append(0)
-    flash._write(data, 256)
+    data.append(0x03)
+    flash._write(data, 259, True)
+    
         
 finally:	
 	flash.close()
