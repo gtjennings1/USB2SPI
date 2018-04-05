@@ -23,7 +23,7 @@ try:
 	chip_info = {}
 	chip_info = flash.get_device_status()
 	for key in chip_info:
-		print('{}: {})'.format(key, chip_info[key]))
+		print('{}: {}'.format(key, chip_info[key]))
 finally:	
-	flash.close
+	flash.close()
 

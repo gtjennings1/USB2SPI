@@ -25,5 +25,5 @@ try:
 	flash.write_int(int(args.address, 0), int(args.value, 0))
 	
 finally:	
-	flash.close
+	flash.close()
 

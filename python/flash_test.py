@@ -16,14 +16,17 @@ if port == None:
 from flash import Flash 
 
 flash = Flash()
-flash.debug = args.debug
+flash.debug = True
 flash.open(port)
 
 try:
-	chip_info = {}
-	chip_info = flash.get_device_info()
-	for key in chip_info:
-		print('{}: {} (0x{:02X})'.format(key, chip_info[key][0], chip_info[key][1]))
+    
+    input('Waiting rvl ready')
+    data = []
+    data.append(0x03)
+    flash._write(data, 259, True)
+    
+        
 finally:	
 	flash.close()
 

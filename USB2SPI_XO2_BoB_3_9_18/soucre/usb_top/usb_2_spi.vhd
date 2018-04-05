@@ -89,6 +89,7 @@ architecture rtl of usb_2_spi is
 	signal usb_tx_cork    : std_logic;
 	signal usb_tx_data    : std_logic_vector(7 downto 0);
 	signal usb_tx_room    : std_logic_vector(BUFSIZE_BITS - 1 downto 0);
+	signal usb_rx_len     : std_logic_vector(BUFSIZE_BITS - 1 downto 0);
 	signal spi_tx_data    : std_logic_vector(7 downto 0);
 	signal spi_rx_data    : std_logic_vector(7 downto 0);
 	signal usb_tx_ready   : std_logic;
@@ -96,6 +97,7 @@ architecture rtl of usb_2_spi is
 	signal usb_reset      : std_logic;
 	signal spi_tx_valid   : std_logic;
 	signal spi_enable     : std_logic;
+	signal spi_hold       : std_logic;
 	signal spi_cont       : std_logic;
 	signal spi_busy       : std_logic;
 	signal spi_mosi       : std_logic;
@@ -133,7 +135,7 @@ begin
 			RXval       => usb_rx_valid, -- o  High if a received byte available on RXDAT.
 			RXdat       => usb_rx_data, -- o  Received data byte, valid if RXVAL is high.
 			RXrdy       => usb_rx_ready, -- i  High if application is ready to receive.
-			RXlen       => open,        -- o  No of bytes available in receive buffer.
+			RXlen       => usb_rx_len,        -- o  No of bytes available in receive buffer.
 			TXval       => usb_tx_valid, -- i  High if the application has data to send.
 			TXdat       => usb_tx_data, -- i  Data byte to send, must be valid if TXVAL is high.
 			TXrdy       => usb_tx_ready, -- o  High if the entity is ready to accept the next byte.
@@ -147,16 +149,21 @@ begin
 	
 
 	spi_ctrl_unit: entity work.spi_ctrl
+		generic map(
+			DCOUNTER_W => BUFSIZE_BITS
+		)
 		port map(
 			clk => clk,
 			reset => reset,
 			usb_rx_ready => spi_ctrl_rx_ready,
 			usb_rx_valid => usb_rx_valid,
 			usb_rx_data => usb_rx_data,
+			usb_rx_len  => usb_rx_len,
 			usb_tx_data => spi_ctrl_tx_data,
 			usb_tx_valid => spi_ctrl_tx_valid,
 			spi_resetn => spi_reset_n,
 			spi_busy => spi_busy,
+			spi_hold => spi_hold,
 			spi_enable => spi_enable,
 			spi_cont => spi_cont,
 			spi_tx_data => spi_tx_data,
@@ -172,6 +179,7 @@ begin
 			clock   => clk,             --system clock
 			reset_n => spi_reset_n,     --asynchronous reset
 			enable  => spi_enable,    --initiate transaction
+			hold    => spi_hold,
 			cpol    => '0',             --spi clock polarity
 			cpha    => '0',             --spi clock phase
 			cont    => spi_cont,             --continuous mode command

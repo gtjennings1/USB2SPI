@@ -2,7 +2,7 @@
 <BaliProject version="3.2" title="usb_1p1_demo" device="LCMXO3LF-6900C-6BG256C" default_implementation="usb_1p1_demo">
     <Options/>
     <Implementation title="usb_1p1_demo" dir="usb_1p1_demo" description="usb_1p1_demo" synthesis="synplify" default_strategy="Strategy1">
-        <Options top="usb_2_spi_top_lat_bb"/>
+        <Options def_top="usb_2_spi_top_lat_bb" top="usb_2_spi_top_lat_bb"/>
         <Source name="../../USB2SPI_XO2_BoB_3_9_18/soucre/usb_phy/usb_tx_phy.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
@@ -34,7 +34,7 @@
             <Options/>
         </Source>
         <Source name="../../USB2SPI_XO2_BoB_3_9_18/soucre/usb_top/usb_2_spi_top_lat_bb.vhd" type="VHDL" type_short="VHDL">
-            <Options/>
+            <Options top_module="usb_2_spi_top_lat_bb"/>
         </Source>
         <Source name="../../USB2SPI_XO2_BoB_3_9_18/soucre/usb_top/usb_2_spi.vhd" type="VHDL" type_short="VHDL">
             <Options/>
@@ -46,6 +46,9 @@
             <Options/>
         </Source>
         <Source name="../../USB2SPI_XO2_BoB_3_9_18/soucre/usb_top/usb_desc_pkg.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../USB2SPI_XO2_BoB_3_9_18/soucre/usb_top/spi_ctrl.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
         <Source name="../debug/usb_1p1_debug.rvl" type="Reveal" type_short="Reveal" excluded="TRUE">

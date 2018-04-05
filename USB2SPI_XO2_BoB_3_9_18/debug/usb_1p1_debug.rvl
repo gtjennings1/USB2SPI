@@ -1,17 +1,58 @@
-<Project ModBy="Inserter" SigType="0" Name="C:/work/upwork/projects/USB2SPI/USB2SPI_XO2_BoB_3_9_18/debug/usb_1p1_debug.rvl" Date="2018-03-28">
+<Project ModBy="Inserter" SigType="0" Name="C:/work/upwork/projects/USB2SPI/USB2SPI_XO2_BoB_3_9_18/debug/usb_1p1_debug.rvl" Date="2018-04-05">
     <IP Version="1_6_042617"/>
     <Design DesignEntry="Schematic/VHDL" Synthesis="synplify" DeviceFamily="MachXO2" DesignName="usb_1p1_demo"/>
-    <Core InsertDataset="0" Insert="1" Reveal_sig="150514653" Name="usb_2upper_LA0" ID="0">
+    <Core InsertDataset="0" Insert="1" Reveal_sig="151693837" Name="usb_2upper_LA0" ID="0">
         <Setting>
             <Clock SampleClk="usb_2_spi_unit/clk" SampleEnable="0" EnableClk="" EnableClk_Pri="0"/>
-            <TraceBuffer Implementation="0" BitTimeStamp="0" hasTimeStamp="0" IncTrigSig="0" BufferDepth="1024"/>
-            <Capture Mode="1" MinSamplesPerTrig="16"/>
+            <TraceBuffer Implementation="0" BitTimeStamp="0" hasTimeStamp="0" IncTrigSig="0" BufferDepth="2048"/>
+            <Capture Mode="1" MinSamplesPerTrig="256"/>
             <Event CntEnable="0" MaxEventCnt="8"/>
             <TrigOut Polarity="0" MinPulseWidth="0" TrigOutNetType="1" EnableTrigOut="0" TrigOutNet="reveal_debug_usb_2upper_LA0_net"/>
             <DistRAM Disable="0"/>
         </Setting>
         <Dataset Name="Base">
             <Trace>
+                <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_ready"/>
+                <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_valid"/>
+                <Bus Name="usb_2_spi_unit/usb_rx_len">
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_len:0"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_len:1"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_len:2"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_len:3"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_len:4"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_len:5"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_len:6"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_len:7"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_len:8"/>
+                </Bus>
+                <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/read_mode_en"/>
+                <Bus Name="usb_2_spi_unit/spi_ctrl_unit/command_state">
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/command_state:0"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/command_state:1"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/command_state:2"/>
+                </Bus>
+                <Bus Name="usb_2_spi_unit/spi_ctrl_unit/command">
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/command:0"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/command:1"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/command:2"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/command:3"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/command:4"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/command:5"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/command:6"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/command:7"/>
+                </Bus>
+                <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/command_valid"/>
+                <Bus Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len">
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:0"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:1"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:2"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:3"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:4"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:5"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:6"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:7"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:8"/>
+                </Bus>
                 <Bus Name="usb_2_spi_unit/usb_rx_data">
                     <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_data:0"/>
                     <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_data:1"/>
@@ -22,21 +63,24 @@
                     <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_data:6"/>
                     <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_data:7"/>
                 </Bus>
-                <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_ready"/>
-                <Sig Type="SIG" Name="usb_2_spi_unit/usb_rx_valid"/>
-                <Bus Name="usb_2_spi_unit/usb_tx_room">
-                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_room:0"/>
-                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_room:1"/>
-                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_room:2"/>
-                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_room:3"/>
-                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_room:4"/>
-                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_room:5"/>
-                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_room:6"/>
-                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_room:7"/>
+                <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_ready"/>
+                <Bus Name="usb_2_spi_unit/usb_tx_data">
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_data:0"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_data:1"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_data:2"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_data:3"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_data:4"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_data:5"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_data:6"/>
+                    <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_data:7"/>
                 </Bus>
+                <Sig Type="SIG" Name="usb_2_spi_unit/usb_tx_valid"/>
+                <Sig Type="SIG" Name="usb_2_spi_unit/spi_ctrl_unit/spi_enable"/>
             </Trace>
             <Trigger>
                 <TU Serialbits="0" Type="0" ID="1" Sig="usb_2_spi_unit/usb_rx_valid,"/>
+                <TU Serialbits="0" Type="0" ID="2" Sig="(BUS)usb_2_spi_unit/spi_ctrl_unit/command_state[2:0],"/>
+                <TU Serialbits="0" Type="0" ID="3" Sig="usb_2_spi_unit/spi_ctrl_unit/command_valid,"/>
                 <TE MaxSequence="16" MaxEvnCnt="64" ID="1" Resource="1"/>
             </Trigger>
         </Dataset>

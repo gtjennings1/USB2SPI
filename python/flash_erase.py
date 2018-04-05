@@ -56,7 +56,7 @@ try:
             
         print('Partial chip erasing:')
         print('The memory range will be erased from 0x{:08x} to 0x{:08x}'.format(start_address, end_address))
-        cont = input('Are you sure you want to continue?[y/N]')
+        cont = input('Are you sure you want to continue?[y/N] ')
         if cont is None:
             exit()
         elif cont.lower() == 'n':
@@ -66,5 +66,5 @@ try:
             flash.erase_chip_partial(start_address, bsize, bcount)
                 
 finally:    
-    flash.close
+    flash.close()
 

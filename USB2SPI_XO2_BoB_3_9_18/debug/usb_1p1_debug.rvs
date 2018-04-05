@@ -1,39 +1,91 @@
-<Project ModBy="Inserter" Name="C:/work/upwork/projects/USB2SPI/USB2SPI_XO2_BoB_3_9_18/debug/usb_1p1_debug.rvl" Date="2018-03-28">
-    <Core Name="usb_2upper_LA0">
-        <Setting>
-            <Capture SamplesPerTrig="1024" NumTrigsCap="1"/>
-            <Event EventCnt="0" CntEnableRun="0"/>
-            <TrigSetting PreTrgSamples="" AND_ALL="0" PostTrgSamples="" TURadix="0"/>
-        </Setting>
-        <Dataset Name="Base">
-            <Trace>
-                <Bus Name="usb_2_spi_unit/usb_rx_data" Radix="0">
-                    <Sig Name="usb_2_spi_unit/usb_rx_data:0"/>
-                    <Sig Name="usb_2_spi_unit/usb_rx_data:1"/>
-                    <Sig Name="usb_2_spi_unit/usb_rx_data:2"/>
-                    <Sig Name="usb_2_spi_unit/usb_rx_data:3"/>
-                    <Sig Name="usb_2_spi_unit/usb_rx_data:4"/>
-                    <Sig Name="usb_2_spi_unit/usb_rx_data:5"/>
-                    <Sig Name="usb_2_spi_unit/usb_rx_data:6"/>
-                    <Sig Name="usb_2_spi_unit/usb_rx_data:7"/>
-                </Bus>
-                <Sig Name="usb_2_spi_unit/usb_rx_ready"/>
-                <Sig Name="usb_2_spi_unit/usb_rx_valid"/>
-                <Bus Name="usb_2_spi_unit/usb_tx_room" Radix="0">
-                    <Sig Name="usb_2_spi_unit/usb_tx_room:0"/>
-                    <Sig Name="usb_2_spi_unit/usb_tx_room:1"/>
-                    <Sig Name="usb_2_spi_unit/usb_tx_room:2"/>
-                    <Sig Name="usb_2_spi_unit/usb_tx_room:3"/>
-                    <Sig Name="usb_2_spi_unit/usb_tx_room:4"/>
-                    <Sig Name="usb_2_spi_unit/usb_tx_room:5"/>
-                    <Sig Name="usb_2_spi_unit/usb_tx_room:6"/>
-                    <Sig Name="usb_2_spi_unit/usb_tx_room:7"/>
-                </Bus>
-            </Trace>
-            <Trigger>
-                <TU Operator="6" Name="TU1" ID="1" Value="1" Radix="0"/>
-                <TE Enable="1" Expression="TU1" Name="TE1" ID="1"/>
-            </Trigger>
-        </Dataset>
-    </Core>
+<Project ModBy="Analyzer" Name="C:/work/upwork/projects/USB2SPI/USB2SPI_XO2_BoB_3_9_18/debug/usb_1p1_debug.rvs" Date="2018-04-05">
+ <Core Name="usb_2upper_LA0">
+  <Setting>
+   <Capture SamplesPerTrig="512" NumTrigsCap="1"/>
+   <Event EventCnt="0" CntEnableRun="0"/>
+   <TrigSetting PreTrgSamples="" AND_ALL="0" PostTrgSamples="" TURadix="0"/>
+  </Setting>
+  <Dataset Name="Base">
+   <Trace>
+    <Sig Name="usb_2_spi_unit/usb_rx_ready"/>
+    <Sig Name="usb_2_spi_unit/usb_rx_valid"/>
+    <Bus Name="usb_2_spi_unit/usb_rx_len" Radix="0">
+     <Sig Name="usb_2_spi_unit/usb_rx_len:0"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_len:1"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_len:2"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_len:3"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_len:4"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_len:5"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_len:6"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_len:7"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_len:8"/>
+    </Bus>
+    <Sig Name="usb_2_spi_unit/spi_ctrl_unit/read_mode_en"/>
+    <Bus Name="usb_2_spi_unit/spi_ctrl_unit/command_state" Radix="RVL_ENUM_usb_2_spi_unit_spi_ctrl_unit_command_state">
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/command_state:0"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/command_state:1"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/command_state:2"/>
+    </Bus>
+    <Bus Name="usb_2_spi_unit/spi_ctrl_unit/command" Radix="0">
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/command:0"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/command:1"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/command:2"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/command:3"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/command:4"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/command:5"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/command:6"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/command:7"/>
+    </Bus>
+    <Sig Name="usb_2_spi_unit/spi_ctrl_unit/command_valid"/>
+    <Bus Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len" Radix="0">
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:0"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:1"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:2"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:3"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:4"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:5"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:6"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:7"/>
+     <Sig Name="usb_2_spi_unit/spi_ctrl_unit/transfer_len:8"/>
+    </Bus>
+    <Bus Name="usb_2_spi_unit/usb_rx_data" Radix="0">
+     <Sig Name="usb_2_spi_unit/usb_rx_data:0"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_data:1"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_data:2"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_data:3"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_data:4"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_data:5"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_data:6"/>
+     <Sig Name="usb_2_spi_unit/usb_rx_data:7"/>
+    </Bus>
+    <Sig Name="usb_2_spi_unit/usb_tx_ready"/>
+    <Bus Name="usb_2_spi_unit/usb_tx_data" Radix="0">
+     <Sig Name="usb_2_spi_unit/usb_tx_data:0"/>
+     <Sig Name="usb_2_spi_unit/usb_tx_data:1"/>
+     <Sig Name="usb_2_spi_unit/usb_tx_data:2"/>
+     <Sig Name="usb_2_spi_unit/usb_tx_data:3"/>
+     <Sig Name="usb_2_spi_unit/usb_tx_data:4"/>
+     <Sig Name="usb_2_spi_unit/usb_tx_data:5"/>
+     <Sig Name="usb_2_spi_unit/usb_tx_data:6"/>
+     <Sig Name="usb_2_spi_unit/usb_tx_data:7"/>
+    </Bus>
+    <Sig Name="usb_2_spi_unit/usb_tx_valid"/>
+    <Sig Name="usb_2_spi_unit/spi_ctrl_unit/spi_enable"/>
+   </Trace>
+   <Trigger>
+    <TU Operator="6" Name="TU1" ID="1" Value="1" Radix="0"/>
+    <TU Operator="0" Name="TU2" ID="2" Value="Transfer" Radix="RVL_ENUM_usb_2_spi_unit_spi_ctrl_unit_command_state"/>
+    <TU Operator="0" Name="TU3" ID="3" Value="1" Radix="0"/>
+    <TE Enable="1" Expression="TU3" Name="TE1" ID="1"/>
+   </Trigger>
+  </Dataset>
+ </Core>
+ <Token width="3" type="ENUM" name="RVL_ENUM_usb_2_spi_unit_spi_ctrl_unit_command_state">
+  <entry key="WaitCommand" value="000"/>
+  <entry key="Size_LSB" value="001"/>
+  <entry key="Size_MSB" value="010"/>
+  <entry key="Prepare" value="011"/>
+  <entry key="Transfer" value="100"/>
+  <entry key="WaitEnd" value="101"/>
+ </Token>
 </Project>
