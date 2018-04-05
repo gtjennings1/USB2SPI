@@ -50,7 +50,6 @@ class Flash:
         self.port = None
         self.debug = False
         self.verbose = True
-        self.counter = 0
 
     def _write(self, data, dummies, read = False):
         for x in range(0, dummies):
@@ -69,7 +68,6 @@ class Flash:
         rd = []
         size = written
         if read :
-            #time.sleep(1)
             while len(rd) < written - 2:
                 rd.extend(self.port.read())
 
@@ -79,7 +77,6 @@ class Flash:
         return rd
 
     def _write_enable(self):
-        print('wen')
         data = [self.WRITE_ENA]
         self._write(data, 0)
 
@@ -131,8 +128,6 @@ class Flash:
             page_size = (address | 0xFF) - address + 1
             real_size = min(page_size, size)
             real_size = min(256, real_size)
-            print('Page program: 0x{:06x}:{}'.format(address, real_size))
-            #self.counter += 1
             wr_data = [self.PAGE_PROG]
             wr_data.extend(self._address2bytes(address))
             wr_data.extend(data[start:start + real_size])
@@ -389,7 +384,7 @@ class Flash:
             
             
     def read(self, address, size):
-        #bar = ProgressBar(max_value=size).start()
+        bar = ProgressBar(max_value=size).start()
         i = 0
         hh = []
         while size > 0:
@@ -398,10 +393,10 @@ class Flash:
             hh.extend(bytes(rd))
             size = size - len(rd)
             address = address + len(rd)
-            #bar.update(i)
+            bar.update(i)
             i = i + len(rd)
             time.sleep(0.01)
-        #bar.finish()
+        bar.finish()
         return hh
         
        
