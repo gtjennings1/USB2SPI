@@ -61,15 +61,19 @@ class Flash:
         cmd.append(((len(data) - 1) >> 8) & 0xFF)
         cmd.extend(data[1:])
         written = self.port.write(bytes(cmd))
+        self.port.flush()
+        
+        if self.debug:
+            print('write ({}/{}): {}'.format(written, len(cmd), cmd))
         
         rd = []
         size = written
         if read :
-            time.sleep(0.1)
-            rd = self.port.read(written - 2)
+            time.sleep(1)
+            while len(rd) < written - 2:
+                rd.extend(self.port.read())
 
         if self.debug:
-            print('write ({}/{}): {}'.format(written, len(cmd), cmd))
             if read:
                 print('read ({}/{}): {}'.format(len(rd), written - 2, rd))
         return rd
@@ -215,7 +219,7 @@ class Flash:
 
 
     def open(self, port):
-        self.port = serial.Serial(port, write_timeout=0, timeout=60)
+        self.port = serial.Serial(port, write_timeout=0, timeout=1)
         print(self.port.port)
         time.sleep(0.1)
         self._write_enable()
@@ -369,17 +373,17 @@ class Flash:
             print('Reading finished')
             
     def write_int(self, address, value):
-        data[0] = value & 0xFF
-        data[1] = (value >> 8) & 0xFF
-        data[2] = (value >> 16) & 0xFF
-        data[3] = (value >> 24) & 0xFF
-        self._write_enable()
+        data = []
+        data.append(value & 0xFF)
+        data.append((value >> 8) & 0xFF)
+        data.append((value >> 16) & 0xFF)
+        data.append((value >> 24) & 0xFF)
         self._page_program(address, data)
         
             
             
     def read(self, address, size):
-        bar = ProgressBar(max_value=size).start()
+        #bar = ProgressBar(max_value=size).start()
         i = 0
         hh = []
         while size > 0:
@@ -388,10 +392,10 @@ class Flash:
             hh.extend(bytes(rd))
             size = size - len(rd)
             address = address + len(rd)
-            bar.update(i)
+            #bar.update(i)
             i = i + len(rd)
             time.sleep(0.01)
-        bar.finish()
+        #bar.finish()
         return hh
         
        

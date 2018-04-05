@@ -25,5 +25,5 @@ try:
 	for key in chip_info:
 		print('{}: {} (0x{:02X})'.format(key, chip_info[key][0], chip_info[key][1]))
 finally:	
-	flash.close
+	flash.close()
 

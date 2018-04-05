@@ -22,8 +22,9 @@ flash.debug = args.debug
 flash.open(port)
 
 try:
-	print(flash.read(int(args.address,0), args.size))
-	
-finally:	
-	flash.close
+    input("waiting")
+    print(flash.read(int(args.address,0), args.size))
+    
+finally:    
+    flash.close()
 
