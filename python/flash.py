@@ -1,4 +1,3 @@
-
 import serial
 import time
 import os
@@ -50,11 +49,11 @@ class Flash:
         self.port = None
         self.debug = False
         self.verbose = True
-        self.counter = 0
 
     def _write(self, data, dummies, read = False):
         for x in range(0, dummies):
             data.append(x & 0xFF)
+
         cmd = [data[0]]
         cmd.append((len(data) - 1) & 0xFF)
         cmd.append(((len(data) - 1) >> 8) & 0xFF)
@@ -66,8 +65,8 @@ class Flash:
             print('write ({}/{}): {}'.format(written, len(cmd), cmd))
         
         rd = []
+        size = written
         if read :
-            #time.sleep(1)
             while len(rd) < written - 2:
                 rd.extend(self.port.read())
 
@@ -128,8 +127,6 @@ class Flash:
             page_size = (address | 0xFF) - address + 1
             real_size = min(page_size, size)
             real_size = min(256, real_size)
-            #print('Page program: {}'.format(self.counter))
-            self.counter += 1
             wr_data = [self.PAGE_PROG]
             wr_data.extend(self._address2bytes(address))
             wr_data.extend(data[start:start + real_size])
@@ -328,17 +325,20 @@ class Flash:
                     size = self._block_end_address(address, bsize) - address + 1
                     # erasing current block or segment if enabled
                     if erasing:
-                        self._write_enable()
                         if bsize == 12:
+                            self._write_enable()
                             self._sector_erase(address)
                         elif bsize == 15:
+                            self._write_enable()
                             self._block_erase(address, False)
                         elif bsize == 16:
+                            self._write_enable()
                             self._block_erase(address, True)
                         else:
                             pass
-                    while self._isbusy():
-                        time.sleep(0.05)
+                        #waiting until erasing is done
+                        while self._isbusy():
+                            time.sleep(0.05)
                     # program current block to flash
                     self._page_program(address, bin_data[:size])
                     real_size = len(bin_data[:size])
@@ -383,7 +383,7 @@ class Flash:
             
             
     def read(self, address, size):
-        #bar = ProgressBar(max_value=size).start()
+        bar = ProgressBar(max_value=size).start()
         i = 0
         hh = []
         while size > 0:
@@ -392,10 +392,10 @@ class Flash:
             hh.extend(bytes(rd))
             size = size - len(rd)
             address = address + len(rd)
-            #bar.update(i)
+            bar.update(i)
             i = i + len(rd)
             time.sleep(0.01)
-        #bar.finish()
+        bar.finish()
         return hh
         
        
