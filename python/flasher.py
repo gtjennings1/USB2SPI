@@ -39,7 +39,7 @@ else:
 from flash import Flash 
 
 flash = Flash()
-flash.debug = True
+flash.debug = False
 flash.open(port)
 
 chip_info = {}

@@ -68,13 +68,13 @@ architecture RTL of usb_2_spi_top_lat_bb is
 		SEDSTDBY :OUT std_logic);
 	END COMPONENT; 
 	attribute NOM_FREQ : string;
-	attribute NOM_FREQ of onchip_osc : label is "11.57";
+	attribute NOM_FREQ of onchip_osc : label is "12.09";
 begin
 	
 	-- On-Chip Oscillator
 	onchip_osc: OSCH
 		generic map(
-			NOM_FREQ => "11.57"
+			NOM_FREQ => "12.09"
 	)
 		port map(
 			stdby    => '0',

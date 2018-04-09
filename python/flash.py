@@ -67,7 +67,7 @@ class Flash:
         
         rd = []
         if read :
-            time.sleep(1)
+            #time.sleep(1)
             while len(rd) < written - 2:
                 rd.extend(self.port.read())
 
@@ -128,7 +128,7 @@ class Flash:
             page_size = (address | 0xFF) - address + 1
             real_size = min(page_size, size)
             real_size = min(256, real_size)
-            print('Page program: {}'.format(self.counter))
+            #print('Page program: {}'.format(self.counter))
             self.counter += 1
             wr_data = [self.PAGE_PROG]
             wr_data.extend(self._address2bytes(address))
@@ -328,6 +328,7 @@ class Flash:
                     size = self._block_end_address(address, bsize) - address + 1
                     # erasing current block or segment if enabled
                     if erasing:
+                        self._write_enable()
                         if bsize == 12:
                             self._sector_erase(address)
                         elif bsize == 15:
@@ -336,6 +337,8 @@ class Flash:
                             self._block_erase(address, True)
                         else:
                             pass
+                    while self._isbusy():
+                        time.sleep(0.05)
                     # program current block to flash
                     self._page_program(address, bin_data[:size])
                     real_size = len(bin_data[:size])
