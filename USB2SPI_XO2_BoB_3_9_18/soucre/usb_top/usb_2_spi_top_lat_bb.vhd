@@ -49,7 +49,8 @@ entity usb_2_spi_top_lat_bb is
 		mosi      : out   std_logic;     --master out, slave in	
 		--ss_in     : in    std_logic;
 		vcc       : out   std_logic;
-		cresetn   : out   std_logic			
+		cresetn   : out   std_logic;
+			d_oe : out std_logic
 	);
 end entity usb_2_spi_top_lat_bb;
 
@@ -108,7 +109,8 @@ begin
 			miso       => miso,
 			mosi       => mosi,
 			ss_n       => ss_n,
-			creset     => cresetn
+			creset     => cresetn,
+			d_oe => d_oe
 		);
 		
 	FPGA_ready <= not pll_lock;

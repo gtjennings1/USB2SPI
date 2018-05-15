@@ -1,5 +1,0 @@
-#Start recording tcl command: 3/9/2018 13:17:45
-#Project Location: C:/projects/projects/USB to SPI Master Design/USB_Project/USB_2_14_18/USB_DEMO_XO3_BoB/implementation; Project name: usb_1p1_demo
-prj_project open "C:/projects/projects/USB to SPI Master Design/USB_Project/USB_2_14_18/USB_DEMO_XO3_BoB/implementation/usb_1p1_demo.ldf"
-prj_run Map -impl usb_1p1_demo
-#Stop recording: 3/9/2018 13:18:09
