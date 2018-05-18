@@ -58,21 +58,31 @@ class Flash:
         cmd.append((len(data) - 1) & 0xFF)
         cmd.append(((len(data) - 1) >> 8) & 0xFF)
         cmd.extend(data[1:])
-        written = self.port.write(bytes(cmd))
-        self.port.flush()
         
-        if self.debug:
-            print('write ({}/{}): {}'.format(written, len(cmd), cmd))
+        while(True):
+            written = self.port.write(bytes(cmd))
+            self.port.flush()
         
-        rd = []
-        size = written
-        if read :
-            while len(rd) < written - 2:
-                rd.extend(self.port.read())
+            if self.debug:
+                print('write ({}/{}): {}'.format(written, len(cmd), cmd))
+        
+            rd = []
+            size = written
+            if read :
+                rd = self.port.read(written - 2)
+                if len(rd) == written - 2:
+                    break;
+                    
+                #while len(rd) < written - 2:
+                #    rd.extend(self.port.read())
 
-        if self.debug:
-            if read:
-                print('read ({}/{}): {}'.format(len(rd), written - 2, rd))
+            else:
+                break;
+                
+            if self.debug:
+                if read:
+                    print('read ({}/{}): {}'.format(len(rd), written - 2, rd))
+                    
         return rd
 
     def _write_enable(self):
@@ -432,6 +442,7 @@ class Flash:
                         bar.update(i)
                     else:
                         break
+            bar.finish()
             if err_addr is not None:
                 print('Verification failed: at address 0x{:06x} expected value 0x{:02x} got 0x{:02x}'.format(err_addr, expected_value, value))
             else:
