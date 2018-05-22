@@ -79,10 +79,10 @@ class Flash:
             else:
                 break;
                 
-            if self.debug:
-                if read:
-                    print('read ({}/{}): {}'.format(len(rd), written - 2, rd))
-                    
+        if self.debug:
+            if read:
+                print('read ({}/{}): {}'.format(len(rd), written - 2, rd))
+                
         return rd
 
     def _write_enable(self):
