@@ -133,19 +133,24 @@ class Flash:
         size = len(data)
         start = 0
         while size > 0:
-            self._write_enable()
-            page_size = (address | 0xFF) - address + 1
-            real_size = min(page_size, size)
-            real_size = min(256, real_size)
-            wr_data = [self.PAGE_PROG]
-            wr_data.extend(self._address2bytes(address))
-            wr_data.extend(data[start:start + real_size])
-            self._write(wr_data, 0)
+            real_size = 0
+            while True:
+                self._write_enable()
+                page_size = (address | 0xFF) - address + 1
+                real_size = min(page_size, size)
+                real_size = min(256, real_size)
+                wr_data = [self.PAGE_PROG]
+                wr_data.extend(self._address2bytes(address))
+                wr_data.extend(data[start:start + real_size])
+                self._write(wr_data, 0)
+                while self._isbusy():
+                    time.sleep(0.01)
+                if not self._isPageErased(address):
+                    break
+            
             address += real_size
             start += real_size
             size -= real_size
-            while self._isbusy():
-                time.sleep(0.01)
             
 
     def _sector_erase(self, address):
@@ -196,6 +201,14 @@ class Flash:
             return 4194304
         else:
             return 0
+            
+    def _isPageErased(self, address):
+        address &= 0xFFFFFF00;
+        rd = self._read_data(address, 256);
+        for d in rd:
+            if d != 0xFF:
+                return False;
+        return True;
 
     def _read_iniq_id(self):
         data = [self.READ_UNIQ_ID]
