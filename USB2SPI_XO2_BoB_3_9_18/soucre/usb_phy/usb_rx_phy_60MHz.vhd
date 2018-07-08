@@ -182,8 +182,8 @@ begin
     end if;
   end process;
 
-  j   <=     rxdp_s and not rxdn_s;
-  k   <= not rxdp_s and     rxdn_s;
+  j   <=     rxd_s;--rxdp_s and not rxdn_s;
+  k   <= not rxd_s;--not rxdp_s and     rxdn_s;
   se0 <= not rxdp_s and not rxdn_s;
 
   p_se0_s: process (clk, rst)

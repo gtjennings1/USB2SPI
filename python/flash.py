@@ -58,21 +58,31 @@ class Flash:
         cmd.append((len(data) - 1) & 0xFF)
         cmd.append(((len(data) - 1) >> 8) & 0xFF)
         cmd.extend(data[1:])
-        written = self.port.write(bytes(cmd))
-        self.port.flush()
         
-        if self.debug:
-            print('write ({}/{}): {}'.format(written, len(cmd), cmd))
+        while(True):
+            written = self.port.write(bytes(cmd))
+            self.port.flush()
         
-        rd = []
-        size = written
-        if read :
-            while len(rd) < written - 2:
-                rd.extend(self.port.read())
+            if self.debug:
+                print('write ({}/{}): {}'.format(written, len(cmd), cmd))
+        
+            rd = []
+            size = written
+            if read :
+                rd = self.port.read(written - 2)
+                if len(rd) == written - 2:
+                    break;
+                    
+                #while len(rd) < written - 2:
+                #    rd.extend(self.port.read())
 
+            else:
+                break;
+                
         if self.debug:
             if read:
                 print('read ({}/{}): {}'.format(len(rd), written - 2, rd))
+                
         return rd
 
     def _write_enable(self):
@@ -123,19 +133,24 @@ class Flash:
         size = len(data)
         start = 0
         while size > 0:
-            self._write_enable()
-            page_size = (address | 0xFF) - address + 1
-            real_size = min(page_size, size)
-            real_size = min(256, real_size)
-            wr_data = [self.PAGE_PROG]
-            wr_data.extend(self._address2bytes(address))
-            wr_data.extend(data[start:start + real_size])
-            self._write(wr_data, 0)
+            real_size = 0
+            while True:
+                self._write_enable()
+                page_size = (address | 0xFF) - address + 1
+                real_size = min(page_size, size)
+                real_size = min(256, real_size)
+                wr_data = [self.PAGE_PROG]
+                wr_data.extend(self._address2bytes(address))
+                wr_data.extend(data[start:start + real_size])
+                self._write(wr_data, 0)
+                while self._isbusy():
+                    time.sleep(0.01)
+                if not self._isPageErased(address):
+                    break
+            
             address += real_size
             start += real_size
             size -= real_size
-            while self._isbusy():
-                time.sleep(0.01)
             
 
     def _sector_erase(self, address):
@@ -186,6 +201,14 @@ class Flash:
             return 4194304
         else:
             return 0
+            
+    def _isPageErased(self, address):
+        address &= 0xFFFFFF00;
+        rd = self._read_data(address, 256);
+        for d in rd:
+            if d != 0xFF:
+                return False;
+        return True;
 
     def _read_iniq_id(self):
         data = [self.READ_UNIQ_ID]
@@ -432,6 +455,7 @@ class Flash:
                         bar.update(i)
                     else:
                         break
+            bar.finish()
             if err_addr is not None:
                 print('Verification failed: at address 0x{:06x} expected value 0x{:02x} got 0x{:02x}'.format(err_addr, expected_value, value))
             else:

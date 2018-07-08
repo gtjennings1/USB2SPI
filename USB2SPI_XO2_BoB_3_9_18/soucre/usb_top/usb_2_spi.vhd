@@ -75,6 +75,7 @@ entity usb_2_spi is
 		-- SPI slave select
 		ss_n        : out   std_logic;
 		
+		d_oe : out std_logic;
 		creset      : out std_logic
 	);
 	
@@ -129,7 +130,7 @@ begin
 			reset_syc   => open,        -- o  positive active, streched to the next clock
 			d_pos       => usb_dp,      -- io Pos USB data line
 			d_neg       => usb_dn,      -- io Neg USB data line
-			d_oe        => open,
+			d_oe        => d_oe,
 			USB_rst     => usb_reset,        -- o  USB reset detected (SE0 > 2.5 us)
 			online      => usb_online,  -- o  High when the device is in Config state.
 			RXval       => usb_rx_valid, -- o  High if a received byte available on RXDAT.

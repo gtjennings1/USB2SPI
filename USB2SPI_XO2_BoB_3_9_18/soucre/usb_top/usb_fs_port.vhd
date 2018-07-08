@@ -93,6 +93,7 @@ ARCHITECTURE rtl OF usb_fs_port IS
   SIGNAL  txdp           : STD_LOGIC;
   SIGNAL  txoe           : STD_LOGIC;
   SIGNAL  q_txdn         : STD_LOGIC;
+  SIGNAL  q_txdp		: std_logic;
 
   FUNCTION neg(value : STD_LOGIC) RETURN STD_LOGIC IS
   BEGIN
@@ -119,10 +120,12 @@ BEGIN
       reset_tmp <= '1';
       reset_int <= '1';
       q_txdn    <= '0';
+	  q_txdp    <= '0';
     ELSIF clk'EVENT AND clk ='1' THEN
       reset_tmp <= NOT rst_neg_ext;
       reset_int <= reset_tmp;
       q_txdn <= txdn;
+	  q_txdp <= txdp;
     END IF;
   END PROCESS;
 
@@ -132,7 +135,7 @@ BEGIN
   usb_rst     <= usb_rst_phy OR usb_rst_slv;
 
   d_oe  <= NOT txoe;
-  d_pos <= txdp WHEN txoe = '0' ELSE 'Z';
+  d_pos <= q_txdp WHEN txoe = '0' ELSE 'Z';
   d_neg <= q_txdn WHEN txoe = '0' ELSE 'Z';
 
   usb_phy_1 : ENTITY work.usb_phy       --Open Cores USB Phy, designed by Rudolf Usselmanns

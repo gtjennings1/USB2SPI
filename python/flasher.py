@@ -9,6 +9,7 @@ parser.add_argument('-o', dest='output', default=None)
 parser.add_argument('-s', dest='size', default=None, type=int)
 parser.add_argument('-e', dest='full_erase', action='store_true')
 parser.add_argument('-b', dest='block_size', default='64')
+parser.add_argument('-d', dest='debug', action='store_true')
 
 args = parser.parse_args()
 
@@ -39,7 +40,7 @@ else:
 from flash import Flash 
 
 flash = Flash()
-flash.debug = False
+flash.debug = args.debug
 flash.open(port)
 
 chip_info = {}
